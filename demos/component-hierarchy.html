@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Component events</title>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="component-hierarchy.js"></script>
+  <style>
+    level-four > div {
+      border: red 2px solid;
+    }
+
+    level-three > div {
+      border: green 2px solid;
+    }
+
+    level-two > div {
+      border: yellow 2px solid;
+    }
+
+    level-one > div {
+      border: blue 2px solid;
+    }
+  </style>
+</head>
+<body ng-app="componentHierarchy">
+<level-one></level-one>
+</body>
+</html>

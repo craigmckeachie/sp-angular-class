@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI Router and components</title>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="basic-routing.js"></script>
+</head>
+<body ng-app="urlRouting">
+<h2>Testing UI router urls</h2>
+
+<div ui-view></div>
+
+<ul>
+  <li><a ui-sref="alpha">Alpha state</a></li>
+  <li><a ui-sref="beta">Beta state</a></li>
+  <li><a ui-sref="gamma">Gamma state</a></li>
+</ul>
+
+</body>
+</html>

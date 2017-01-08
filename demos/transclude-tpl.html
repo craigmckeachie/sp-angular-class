@@ -1,0 +1,25 @@
+<h2>Transclusion directives</h2>
+
+<h4>A simple directive, &lt;boldify&gt;, which enboldens any text it wraps around.</h4>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+  aspernatur
+  <boldify>blanditiis eligendi illo</boldify>
+  iste maxime nemo sed? Alias in laborum maiores nam
+  natus nulla repellat soluta sunt tenetur ut, vitae?
+</p>
+<hr>
+<h4>What about $ctrl variables? Do they still work?</h4>
+<p>This is normal content.
+  <boldify>This is bolded content, with a reference to foo: {{ $ctrl.foo }}</boldify>
+  And this is normal content again.
+</p>
+<hr>
+<h4>Transclusion is smart, it keeps track of the $scope for the directive, and the scope
+  for the transcluded content:</h4>
+<p>Here, we pass in an optional attribute "bar" which will have a value in the
+  directive's scope, but not here at the component's scope! </p>
+<p>[Content before the directive.]
+  <boldify-with-attr bar="bartastic">Content in the directive</boldify-with-attr>
+  [Content after the directive]
+</p>

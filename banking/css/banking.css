@@ -1,0 +1,72 @@
+main {
+    height: 100vh
+}
+
+.banking-main-section {
+    height: 80%;
+}
+
+tx-component > div {
+    position: relative;
+    height: 100%;
+    /*background-color: red;*/
+}
+
+[ng-click] {
+    cursor: pointer;
+}
+
+tx-detail, tx-list {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.dt-container {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    height: 95%;
+}
+
+.dt-head {
+    border-bottom: rgb(221, 221, 221) solid 2px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.dt-header-row {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 5px;
+    vertical-align: bottom;
+    border-collapse: collapse;
+}
+
+.dt-header-cell {
+    flex: 1;
+    margin-left: -2px;
+}
+
+.dt-cell {
+    line-height: 20px;
+}
+
+.dt-body {
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.dt-body-row {
+    border-top: rgb(221, 221, 221) solid 1px;
+    text-align: left;
+    vertical-align: top;
+    padding: 5px 0
+}
+
+.dt-body-cell {
+}

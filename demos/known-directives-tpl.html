@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="text-center">
+    <div class="btn-group">
+      <div class="btn btn-default" ng-click="$ctrl.showWell=true">Show</div>
+      <div class="btn btn-default" ng-click="$ctrl.showWell=false">Hide</div>
+      <div class="btn btn-default" ng-click="$ctrl.showWell=!$ctrl.showWell">Toggle</div>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin: 15px 0">
+  <div class="well" ng-show="$ctrl.showWell"><h3>This will appear and disappear</h3></div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-6">
+    <form>
+      <div class="form-group"><label for="ml-adj1">Adjective: </label>
+        <input class="form-control" id="ml-adj1" type="text" ng-model="$ctrl.madlibs.adjective1">
+      </div>
+      <div class="form-group"><label for="ml-color">Color: </label>
+        <input class="form-control" id="ml-color" type="text" ng-model="$ctrl.madlibs.color">
+      </div>
+      <div class="form-group"><label for="ml-animal1">Animal: </label>
+        <input class="form-control" id="ml-animal1" type="text" ng-model="$ctrl.madlibs.animal1">
+      </div>
+      <div class="form-group"><label for="ml-adj2">Adjective: </label>
+        <input class="form-control" id="ml-adj2" type="text" ng-model="$ctrl.madlibs.adjective2">
+      </div>
+      <div class="form-group"><label for="ml-animal2">Animal: </label>
+        <input class="form-control" id="ml-animal2" type="text" ng-model="$ctrl.madlibs.animal2">
+      </div>
+    </form>
+
+  </div>
+  <div class="col-md-6">
+    <div class="row" style="margin-top:35%">
+      <div class="col-md-12">
+        <p>The {{ $ctrl.madlibs.adjective1 }} {{ $ctrl.madlibs.color }} {{ $ctrl.madlibs.animal1 }} jumped over the {{
+          $ctrl.madlibs.adjective2 }} {{ $ctrl.madlibs.animal2 }}.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Gender</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="person in $ctrl.people">
+    <td>{{ person.name }}</td>
+    <td>{{ person.age }}</td>
+    <td>{{ person.gender }}</td>
+  </tr>
+  </tbody>
+</table>

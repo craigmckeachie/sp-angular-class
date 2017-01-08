@@ -1,0 +1,17 @@
+[
+  {
+    "accountName": "Individual Checking Account",
+    "id": 1,
+    "type": "Checking",
+    "prefix": "03080511",
+    "interest": false
+  },
+  {
+    "accountName": "Individual Savings Account",
+    "id": 2,
+    "type": "Savings",
+    "prefix": "19012205",
+    "interest": true,
+    "interestRate": 0.125
+  }
+]

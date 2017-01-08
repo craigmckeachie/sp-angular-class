@@ -1,0 +1,13 @@
+node_modules/
+dist/
+build/
+Sandbox/
+Prototype/
+proto.*
+.project
+.settings
+.idea
+.jshintrc
+*.pdf
+exercises/
+banking-original/

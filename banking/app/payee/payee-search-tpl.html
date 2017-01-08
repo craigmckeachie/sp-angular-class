@@ -1,0 +1,22 @@
+<form>
+  <div class="form-group">
+    <label for="payee-name">Payee Name</label>
+    <input ng-model="$ctrl.searchForm.payeeName" id="payee-name" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <input ng-model="$ctrl.searchForm.category" id="category" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="payee-city">City</label>
+    <select ng-model="$ctrl.searchForm.city" gs-linked="$ctrl.searchForm.state" id="payee-city" class="form-control"></select>
+  </div>
+  <div class="form-group">
+    <label for="payee-state">State</label>
+    <select ng-model="$ctrl.searchForm.state" gs-get-list="states" id="payee-state" class="form-control"></select>
+  </div>
+
+  <div class="form-group">
+    <button ng-click="$ctrl.search($ctrl.searchForm)">Search</button>
+  </div>
+</form>

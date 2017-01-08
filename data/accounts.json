@@ -1,0 +1,16 @@
+[
+  {
+    "accountName": "Personal Savings Account",
+    "accountId" : 2,
+    "accountType": 2,
+    "accountNumber": "1901220538",
+    "currentTotal": 738.29
+  },
+  {
+    "accountName": "Personal Checking Account",
+    "accountId": 1,
+    "accountType": 1,
+    "accountNumber": "0308051138",
+    "currentTotal": 1765.72
+  }
+]

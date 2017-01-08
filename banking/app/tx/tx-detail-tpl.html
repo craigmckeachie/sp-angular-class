@@ -1,0 +1,50 @@
+<section class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Transaction {{ $ctrl.tx.txId }}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <table ng-hide="$ctrl.notFound" class="table tx-detail-container">
+          <tbody>
+          <tr>
+            <td class="tx-label col-md-2 text-right">Transaction ID:</td>
+            <td class="tx-value tx-txId">{{ $ctrl.tx.txId }}</td>
+          </tr>
+          <tr>
+            <td class="tx-label col-md-2 text-right">Payee:</td>
+            <td class="tx-value tx-payeeName">{{ $ctrl.tx.payee.payeeName }}</td>
+          </tr>
+          <tr>
+            <td class="tx-label col-md-2 text-right">Amount:</td>
+            <td class="tx-value tx-amount">{{ $ctrl.tx.amount | currency }}</td>
+          </tr>
+          <tr>
+            <td class="tx-label col-md-2 text-right">Date:</td>
+            <td class="tx-value tx-txDate">{{ $ctrl.tx.txDate | date:'yyyy-MM-dd' }}</td>
+          </tr>
+          <tr>
+            <td class="tx-label col-md-2 text-right">Type:</td>
+            <td class="tx-value tx-txType">{{ $ctrl.tx.txType }}</td>
+          </tr>
+          <tr>
+            <td class="tx-label col-md-2 text-right">Account:</td>
+            <td class="tx-value tx-accountName">{{ $ctrl.tx.accountName }}</td>
+          </tr>
+          <tr>
+            <td class="tx-label col-md-2 text-right">Category:</td>
+            <td class="tx-value tx-categoryName">{{ $ctrl.tx.category.categoryName }}</td>
+          </tr>
+          <tr>
+            <td class="tx-label col-md-2 text-right">Status:</td>
+            <td class="tx-value tx-txStatus">{{ $ctrl.tx.txStatus }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div ng-show="$ctrl.notFound" class="col-md-6">
+        <h3>Could not find transaction #{{ $ctrl.txId }}</h3>
+      </div>
+    </div>
+  </div>
+</section>

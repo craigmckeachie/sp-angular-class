@@ -1,0 +1,41 @@
+<div class="dt-container">
+  <div class="dt-head">
+    <div class="dt-header-row row">
+      <div ng-click="$ctrl.toggleSort('payee.payeeName')" class="col-md-4">Payee</div>
+      <div ng-click="$ctrl.toggleSort('amount')" class="col-md-2">Amount</div>
+      <div ng-click="$ctrl.toggleSort('txType')" class="col-md-2">Type</div>
+      <div ng-click="$ctrl.toggleSort('txDate')" class="col-md-2">Date</div>
+      <div ng-click="$ctrl.toggleSort('category.categoryName')" class="col-md-2">Category</div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <input class="form-control" type="text" name="txFilter" id="lf-payeeName" ng-model="$ctrl.listFilter.payee.payeeName">
+      </div>
+      <div class="col-md-2">
+        <input class="form-control" type="text" name="txFilter" id="lf-amount" ng-model="$ctrl.listFilter.amount">
+      </div>
+      <div class="col-md-2">
+        <input class="form-control" type="text" name="txFilter" id="lf-txType" ng-model="$ctrl.listFilter.txType">
+      </div>
+      <div class="col-md-2">
+        <input class="form-control" type="text" name="txFilter" id="lf-txDate" ng-model="$ctrl.listFilter.txDate">
+      </div>
+      <div class="col-md-2">
+        <input class="form-control" type="text" name="txFilter" id="lf-categoryName" ng-model="$ctrl.listFilter.category.categoryName">
+      </div>
+    </div>
+  </div>
+  <div class="dt-body">
+    <div class="dt-row dt-body-row row"
+         ng-hide="$ctrl.noTx"
+         ng-click="$ctrl.callSelect(tx)"
+         ng-repeat="tx in $ctrl.transactions | filter:$ctrl.listFilter | orderBy:$ctrl.sortField">
+      <div class="dt-cell col-md-4 dt-payeeName dt-2-wide">{{ tx.payee.payeeName }}</div>
+      <div class="dt-cell col-md-2 dt-amount">{{ tx.amount | currency }}</div>
+      <div class="dt-cell col-md-2 dt-txType">{{ tx.txType }}</div>
+      <div class="dt-cell col-md-2 dt-txDate">{{ tx.txDate | date:'yyyy-MM-dd' }}</div>
+      <div class="dt-cell col-md-2 dt-category">{{ tx.category.categoryName }}</div>
+    </div>
+    <div ng-show="$ctrl.noTx"><h2>No records found.</h2></div>
+  </div>
+</div>
