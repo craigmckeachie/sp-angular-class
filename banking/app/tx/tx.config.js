@@ -7,7 +7,6 @@
       .state( 'tx.search', {
         url     : '/search',
         template: '<tx-search on-search="$ctrl.swapToList(criteria)"></tx-search>'
-        // resolve: '<tx-search on-search="$ctrl.swapToList(criteria)"></tx-search>'
       } )
       .state( 'tx.list', {
         url     : '/list?{payee.payeeName}&{payeeId:int}&{accountId:int}&{categoryId:int}&{txType}&{txStatus}&{amount}&{amountLow}&{amountHigh}&{txDate:date}&{txDateLow:date}&{txDateHigh:date}',

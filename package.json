@@ -42,6 +42,7 @@
     "karma-ie-launcher": "^1.0.0",
     "karma-jasmine": "^1.1.0",
     "karma-junit-reporter": "^1.2.0",
+    "karma-mocha-reporter": "^2.2.1",
     "karma-ng-html2js-preprocessor": "^1.0.0",
     "morgan": "^1.7.0",
     "ng-annotate": "^1.2.1",
