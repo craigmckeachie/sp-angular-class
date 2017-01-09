@@ -9,19 +9,7 @@
     $stateProvider
       .state( 'tx', {
         url     : '/tx',
-        template: '<tx-main></tx-main>'
-      } )
-      .state( 'tx.search', {
-        url     : '/search',
-        template: '<tx-search on-search="$ctrl.swapToList(criteria)"></tx-search>'
-      } )
-      .state( 'tx.list', {
-        url     : '/list?{payee.payeeName}&{payeeId:int}&{accountId:int}&{categoryId:int}&{txType}&{txStatus}&{amount}&{amountLow}&{amountHigh}&{txDate:date}&{txDateLow:date}&{txDateHigh:date}',
-        template: '<tx-list transactions="$ctrl.transactions" on-select="$ctrl.swapToDetail(tx)"></tx-list>'
-      } )
-      .state( 'tx.detail', {
-        url     : '/detail/{txId:[0-9]+}',
-        template: '<tx-detail tx="$ctrl.tx"></tx-detail>'
+        component: 'txMain'
       } )
       .state( 'payees', {
         url     : '/payees',
