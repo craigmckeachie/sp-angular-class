@@ -1,7 +1,7 @@
 (function( angular ) {
-  angular.module( 'tx.search', [] )
+  angular.module( 'tx' )
       .component( 'txSearch', {
-        templateUrl: 'app/tx/tx-search-tpl.html',
+        templateUrl: 'app/tx/tx-search.component.html',
         controller: TxSearchController,
         bindings: {
           onSearch: '&'

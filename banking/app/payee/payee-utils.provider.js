@@ -1,6 +1,6 @@
 (function( angular ) {
-  angular.module( 'tx.utils', [] )
-      .constant( 'txUtils', {
+  angular.module( 'payee' )
+      .constant( 'payeeUtils', {
         lastParams : null,
         paramsToCriteria : function(stateParams) {
           var newParams = angular.copy( stateParams );

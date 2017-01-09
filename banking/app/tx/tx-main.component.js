@@ -1,11 +1,11 @@
 (function( angular ) {
-  angular.module( 'tx.component', [ 'tx.dao', 'tx.search', 'tx.list', 'tx.detail', 'tx.utils', 'ui.router' ] )
-      .component( 'txComponent', {
-        templateUrl: 'app/tx/tx-component-tpl.html',
-        controller: TxComponentController
+  angular.module( 'tx' )
+      .component( 'txMain', {
+        templateUrl: 'app/tx/tx-main.component.html',
+        controller: TxMainController
       } );
 
-  function TxComponentController( $log, $state, txDAO ) {
+  function TxMainController( $log, $state, txDAO ) {
     var ctrl = this;
 
     ctrl.swapToList = swapToList;
@@ -13,7 +13,7 @@
     ctrl.getById = getById;
     ctrl.search = search;
 
-    function swapToList( criteria, go ) {
+    function swapToList( criteria ) {
       $state.go( 'tx.list', criteria );
     }
 

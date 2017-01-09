@@ -1,14 +1,14 @@
 (function( angular ) {
-  angular.module( 'directives.getList', [ 'payee.dao' ] )
-      .directive( 'gsGetList', gsGetListDirective );
+  angular.module( 'payee.directives', [ 'payee' ] )
+      .directive( 'getList', getListDirective );
 
-  function gsGetListDirective() {
+  function getListDirective() {
     return {
       restrict: 'A',
       bindToController: true,
       controllerAs: '$ctrl',
       scope: {
-        gsGetList: '@'
+        getList: '@'
       },
       controller: function( payeeDAO, $q ) {
         var ctrl = this;
@@ -28,7 +28,7 @@
 
       link: function( scope, element, attrs, ctrl ) {
         var optionsList = '';
-        if ( attrs.gsGetList === 'states' ) {
+        if ( attrs.getList === 'states' ) {
           optionsList = '<option value="">Please select a state</option>';
           ctrl.getStates()
               .then( function( states ) {

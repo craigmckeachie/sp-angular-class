@@ -1,7 +1,7 @@
 (function( angular ) {
-  angular.module( 'payee.search', [] )
+  angular.module( 'payee' )
       .component( 'payeeSearch', {
-        templateUrl: 'app/payee/payee-search-tpl.html',
+        templateUrl: 'app/payee/payee-search.component.html',
         controller: PayeeSearchController,
         bindings: {
           onSearch: '&'

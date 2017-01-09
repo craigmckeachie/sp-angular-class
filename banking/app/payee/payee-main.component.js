@@ -1,12 +1,11 @@
 (function( angular ) {
-  angular.module( 'payee.component', [ 'payee.dao', 'payee.list', 'payee.detail',
-    'payee.search', 'payee.utils', 'directives.getList', 'directives.linkedSelect', 'ui.router' ] )
-      .component( 'payeeComponent', {
-        templateUrl: 'app/payee/payee-component-tpl.html',
-        controller: PayeeComponentController
+  angular.module( 'payee' )
+      .component( 'payeeMain', {
+        templateUrl: 'app/payee/payee-main.component.html',
+        controller: PayeeMainController
       } );
 
-  function PayeeComponentController( $log, $state, payeeDAO ) {
+  function PayeeMainController( $log, $state, payeeDAO ) {
     var ctrl = this;
 
     ctrl.swapToList = swapToList;

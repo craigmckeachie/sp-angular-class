@@ -1,5 +1,5 @@
 (function( angular ) {
-  angular.module( 'account.lookup', [] )
+  angular.module( 'account', [] )
       .value( 'account', {
         getAccountName: function( accountId ) {
           if ( accountId === 1 ) {

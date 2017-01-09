@@ -6,7 +6,7 @@ main {
     height: 80%;
 }
 
-tx-component > div {
+tx-main > div {
     position: relative;
     height: 100%;
     /*background-color: red;*/

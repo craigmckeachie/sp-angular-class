@@ -1,10 +1,10 @@
 (function( angular ) {
-  angular.module( 'payee.list', [] )
+  angular.module( 'payee' )
       .component( 'payeeList', {
-        templateUrl: 'app/payee/payee-list-tpl.html',
+        templateUrl: 'app/payee/payee-list.component.html',
         controller: PayeeListController,
         require: {
-          payeeComponent: '^^payeeComponent'
+          payeeComponent: '^^payeeMain'
         },
         bindings: {
           payees: '<',

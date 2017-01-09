@@ -1,10 +1,10 @@
 (function( angular ) {
-  angular.module( 'tx.list', [] )
+  angular.module( 'tx' )
       .component( 'txList', {
-        templateUrl: 'app/tx/tx-list-tpl.html',
+        templateUrl: 'app/tx/tx-list.component.html',
         controller: TxListController,
         require: {
-          txComponent: '^^txComponent'
+          txComponent: '^^txMain'
         },
         bindings: {
           transactions: '<?',

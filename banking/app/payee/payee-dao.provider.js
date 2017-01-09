@@ -1,8 +1,9 @@
 (function( angular ) {
-  angular.module( 'payee.dao', [] ).factory( 'payeeDAO', payeeDAO );
+  angular.module( 'payee' )
+    .factory( 'payeeDAO', payeeDAO );
 
   function payeeDAO( $http, $log, $q ) {
-    var baseHref = 'http://localhost:7100/banking/payee/',
+    var baseHref = 'http://localhost:8001/payee/',
         citiesByState = {},
         states = [];
 

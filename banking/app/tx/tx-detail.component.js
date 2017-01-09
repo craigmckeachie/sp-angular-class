@@ -1,7 +1,7 @@
 (function( angular ) {
-  angular.module( 'tx.detail', [ 'account.lookup' ] )
+  angular.module( 'tx' )
       .component( 'txDetail', {
-        templateUrl: 'app/tx/tx-detail-tpl.html',
+        templateUrl: 'app/tx/tx-detail.component.html',
         controller: TxDetailController,
         require: {
           txComponent: '^^txComponent'

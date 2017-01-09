@@ -1,7 +1,7 @@
 (function( angular ) {
-  angular.module( 'banking.main.component', [] )
+  angular.module( 'banking' )
       .component( 'bankingMain', {
-        templateUrl: 'app/banking-main-tpl.html',
+        templateUrl: 'app/banking-main.component.html',
         controller: BankingMainController
       } );
 

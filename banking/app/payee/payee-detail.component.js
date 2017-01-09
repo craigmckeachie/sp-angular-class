@@ -1,7 +1,7 @@
 (function( angular ) {
-  angular.module( 'payee.detail', [] )
+  angular.module( 'payee' )
       .component( 'payeeDetail', {
-        templateUrl: 'app/payee/payee-detail-tpl.html',
+        templateUrl: 'app/payee/payee-detail.component.html',
         controller: PayeeDetailController,
         require: {
           payeeComponent: '^^payeeComponent'
