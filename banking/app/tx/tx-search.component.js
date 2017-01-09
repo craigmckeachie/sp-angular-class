@@ -1,12 +1,12 @@
 (function( angular ) {
   angular.module( 'tx' )
-      .component( 'txSearch', {
-        templateUrl: 'app/tx/tx-search.component.html',
-        controller: TxSearchController,
-        bindings: {
-          onSearch: '&'
-        }
-      } );
+    .component( 'txSearch', {
+      templateUrl: 'app/tx/tx-search.component.html',
+      controller : TxSearchController,
+      bindings   : {
+        onSearch: '&'
+      }
+    } );
 
   function TxSearchController() {
     var ctrl = this;

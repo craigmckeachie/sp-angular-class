@@ -40,12 +40,12 @@ describe( 'Transaction List Test', function() {
           addedCriteria = '/tx/list?payeeName=' + payeeName + '&amountLow=' + amtLow + '&amountHigh=' + amtHigh;
 
           element.all( by.repeater( 'tx in $ctrl.transactions' ) ).count()
-              .then( function( count ) {
-                browser.getLocationAbsUrl().then( function( url ) {
-                  console.log( 'Url [%s]', url );
-                } );
-                initCount = count;
+            .then( function( count ) {
+              browser.getLocationAbsUrl().then( function( url ) {
+                console.log( 'Url [%s]', url );
               } );
+              initCount = count;
+            } );
           browser.setLocation( addedCriteria );
         } );
 
@@ -75,9 +75,9 @@ describe( 'Transaction List Test', function() {
         beforeEach( function() {
           selectedTx = element.all( by.repeater( 'tx in $ctrl.transactions' ) ).get( getRandomInt( 1, 10 ) );
           previousTx = {
-            amount: selectedTx.$( '.dt-amount' ).getText(),
-            txType: selectedTx.$( '.dt-txType' ).getText(),
-            txDate: selectedTx.$( '.dt-txDate' ).getText(),
+            amount      : selectedTx.$( '.dt-amount' ).getText(),
+            txType      : selectedTx.$( '.dt-txType' ).getText(),
+            txDate      : selectedTx.$( '.dt-txDate' ).getText(),
             categoryName: selectedTx.$( '.dt-category' ).getText()
           };
 
@@ -137,10 +137,10 @@ describe( 'Transaction List Test', function() {
       it( 'should switch to another tx', function() {
         var previousContainer = element( by.css( '.tx-detail-container' ) );
         var previousTx = {
-          payeeName: previousContainer.$( '.tx-payeeName' ).getText(),
-          amount: previousContainer.$( '.tx-amount' ).getText(),
-          txType: previousContainer.$( '.tx-txType' ).getText(),
-          txDate: previousContainer.$( '.tx-txDate' ).getText(),
+          payeeName   : previousContainer.$( '.tx-payeeName' ).getText(),
+          amount      : previousContainer.$( '.tx-amount' ).getText(),
+          txType      : previousContainer.$( '.tx-txType' ).getText(),
+          txDate      : previousContainer.$( '.tx-txDate' ).getText(),
           categoryName: previousContainer.$( '.tx-categoryName' ).getText()
         };
 

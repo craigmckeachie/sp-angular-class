@@ -1,7 +1,7 @@
 exports.config = {
-  framework: 'jasmine2',
+  framework      : 'jasmine2',
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: [ 'tx-detail-e2e-spec.js' ],
+  specs          : [ 'tx-detail-e2e-spec.js' ],
 
   // Options to be passed to jasmine2.
   //
@@ -9,10 +9,10 @@ exports.config = {
   // for the exact options available.
   jasmineNodeOpts: {
     // If true, print colors to the terminal.
-    showColors: true,
+    showColors            : true,
     // Default time to wait in ms before a test fails.
     defaultTimeoutInterval: 30000
-    , print: function() {
+    , print               : function() {
     }
   },
 

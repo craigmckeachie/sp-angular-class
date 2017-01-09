@@ -1,9 +1,9 @@
 (function( angular ) {
   angular.module( 'tx' )
-      .component( 'txMain', {
-        templateUrl: 'app/tx/tx-main.component.html',
-        controller: TxMainController
-      } );
+    .component( 'txMain', {
+      templateUrl: 'app/tx/tx-main.component.html',
+      controller : TxMainController
+    } );
 
   function TxMainController( $log, $state, txDAO ) {
     var ctrl = this;

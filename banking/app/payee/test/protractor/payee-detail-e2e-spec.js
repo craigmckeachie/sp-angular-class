@@ -32,9 +32,9 @@ describe( 'Payee List Test', function() {
         } );
       } );
 
-      it('should update criteria when the URL updates: ', function() {
+      it( 'should update criteria when the URL updates: ', function() {
         // TODO: Complete test.
-      });
+      } );
 
       describe( 'Search to list to detail tests: ', function() {
         var selectedPayee, previousPayee;
@@ -43,8 +43,8 @@ describe( 'Payee List Test', function() {
           selectedPayee = element.all( by.repeater( 'payee in $ctrl.payees' ) ).get( getRandomInt( 0, 2 ) );
           previousPayee = {
             payeeName: selectedPayee.$( '.dt-payeeName' ).getText(),
-            city: selectedPayee.$( '.dt-payeeCity' ).getText(),
-            state: selectedPayee.$( '.dt-payeeState' ).getText()
+            city     : selectedPayee.$( '.dt-payeeCity' ).getText(),
+            state    : selectedPayee.$( '.dt-payeeState' ).getText()
           };
 
           selectedPayee.click();
@@ -70,7 +70,7 @@ describe( 'Payee List Test', function() {
           var container = element( by.css( '.payee-detail-container' ) );
 
           expect( container.$( '.payee-payeeName' ).getText() ).toBeTruthy();
-          expect( container.$( '.payee-payeeName' ).getText() ).not.toBe( previousPayee.payeeName);
+          expect( container.$( '.payee-payeeName' ).getText() ).not.toBe( previousPayee.payeeName );
           expect( container.$( '.payee-city' ).getText() ).toBeTruthy();
           expect( container.$( '.payee-city' ).getText() ).not.toBe( previousPayee.city );
           expect( container.$( '.payee-state' ).getText() ).toBeTruthy();
@@ -99,15 +99,15 @@ describe( 'Payee List Test', function() {
         var previousContainer = element( by.css( '.payee-detail-container' ) );
         var previousPayee = {
           payeeName: previousContainer.$( '.payee-payeeName' ).getText(),
-          city: previousContainer.$( '.payee-city' ).getText(),
-          state: previousContainer.$( '.payee-state' ).getText()
+          city     : previousContainer.$( '.payee-city' ).getText(),
+          state    : previousContainer.$( '.payee-state' ).getText()
         };
 
         browser.setLocation( '/payees/detail/48' );
 
         var container = element( by.css( '.payee-detail-container' ) );
         expect( container.$( '.payee-payeeName' ).getText() ).toBeTruthy();
-        expect( container.$( '.payee-payeeName' ).getText() ).not.toBe( previousPayee.payeeName);
+        expect( container.$( '.payee-payeeName' ).getText() ).not.toBe( previousPayee.payeeName );
         expect( container.$( '.payee-city' ).getText() ).toBeTruthy();
         expect( container.$( '.payee-city' ).getText() ).not.toBe( previousPayee.city );
         expect( container.$( '.payee-state' ).getText() ).toBeTruthy();

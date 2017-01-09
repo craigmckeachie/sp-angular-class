@@ -1,12 +1,12 @@
 (function( angular ) {
   angular.module( 'payee' )
-      .component( 'payeeSearch', {
-        templateUrl: 'app/payee/payee-search.component.html',
-        controller: PayeeSearchController,
-        bindings: {
-          onSearch: '&'
-        }
-      } );
+    .component( 'payeeSearch', {
+      templateUrl: 'app/payee/payee-search.component.html',
+      controller : PayeeSearchController,
+      bindings   : {
+        onSearch: '&'
+      }
+    } );
 
   function PayeeSearchController() {
     var ctrl = this;

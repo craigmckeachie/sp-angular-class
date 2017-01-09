@@ -8,7 +8,7 @@
     $urlRouterProvider.when( '/payees', '/payees/search' );
     $stateProvider
       .state( 'tx', {
-        url     : '/tx',
+        url      : '/tx',
         component: 'txMain'
       } )
       .state( 'payees', {

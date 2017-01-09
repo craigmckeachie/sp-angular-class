@@ -24,13 +24,13 @@ describe( 'Transaction List Test', function() {
 
   it( 'should transition to detail on click', function() {
     var parentTx = element.all( by.cssContainingText( '.dt-body-cell', 'Goodman, Lieber, Kurtzberg, Holliway' ) )
-        .first()
-        .element( by.xpath( '..' ) );
+      .first()
+      .element( by.xpath( '..' ) );
     var payee = parentTx.element( by.css( '.dt-payee' ) ).getText(),
-        amount = parentTx.element( by.css( '.dt-amount' ) ).getText(),
-        txType = parentTx.element( by.css( '.dt-txType' ) ).getText(),
-        txDate = parentTx.element( by.css( '.dt-txDate' ) ).getText(),
-        category = parentTx.element( by.css( '.dt-category' ) ).getText();
+      amount = parentTx.element( by.css( '.dt-amount' ) ).getText(),
+      txType = parentTx.element( by.css( '.dt-txType' ) ).getText(),
+      txDate = parentTx.element( by.css( '.dt-txDate' ) ).getText(),
+      category = parentTx.element( by.css( '.dt-category' ) ).getText();
 
     parentTx.click();
     expect( payee ).toContain( 'Lieber' );

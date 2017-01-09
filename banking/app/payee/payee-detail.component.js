@@ -1,15 +1,15 @@
 (function( angular ) {
   angular.module( 'payee' )
-      .component( 'payeeDetail', {
-        templateUrl: 'app/payee/payee-detail.component.html',
-        controller: PayeeDetailController,
-        require: {
-          payeeComponent: '^^payeeComponent'
-        },
-        bindings: {
-          payee: '<?'
-        }
-      } );
+    .component( 'payeeDetail', {
+      templateUrl: 'app/payee/payee-detail.component.html',
+      controller : PayeeDetailController,
+      require    : {
+        payeeComponent: '^^payeeComponent'
+      },
+      bindings   : {
+        payee: '<?'
+      }
+    } );
 
   function PayeeDetailController( $stateParams ) {
     var ctrl = this;
@@ -27,14 +27,14 @@
 
     function updatePayee( payeeId ) {
       ctrl.payeeComponent.getById( payeeId )
-          .then( function( payee ) {
-            ctrl.payee = payee;
-          }, function(err) {
-            if (err.status === 404) {
-              ctrl.notFound = true;
-              ctrl.payeeId = $stateParams.payeeId;
-            }
-          } );
+        .then( function( payee ) {
+          ctrl.payee = payee;
+        }, function( err ) {
+          if ( err.status === 404 ) {
+            ctrl.notFound = true;
+            ctrl.payeeId = $stateParams.payeeId;
+          }
+        } );
     }
 
   }
