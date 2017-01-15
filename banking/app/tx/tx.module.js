@@ -1,3 +1,3 @@
 (function( angular ) {
-  angular.module( 'tx', [ 'account' ] );
+  angular.module( 'tx', [ 'account', 'common' ] );
 })( angular )

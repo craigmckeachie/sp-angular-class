@@ -5,23 +5,23 @@
   </div>
   <div class="form-group">
     <label for="category">Category</label>
-    <input ng-model="searchForm.category" id="category" type="text" class="form-control">
+    <input ng-model="searchForm.category.categoryName_like" id="category" type="text" class="form-control">
   </div>
   <div class="form-group">
     <label for="amount-low">Amount Low </label>
-    <input ng-model="searchForm.amountLow" id="amount-low" type="text" class="form-control">
+    <input ng-model="searchForm.amount_gte" id="amount-low" type="text" class="form-control">
   </div>
   <div class="form-group">
     <label for="amount-high">Amount High</label>
-    <input ng-model="searchForm.amountHigh" id="amount-high" type="text" class="form-control">
+    <input ng-model="searchForm.amount_lte" id="amount-high" type="text" class="form-control">
   </div>
   <div class="form-group">
     <label for="start-date">Start Date (yyyy-mm-dd)</label>
-    <input ng-model="searchForm.txDateLow" id="start-date" type="text" class="form-control">
+    <input ng-model="searchForm.txDate_gte" id="start-date" type="text" class="form-control">
   </div>
   <div class="form-group">
     <label for="end-date">End Date (yyyy-mm-dd)</label>
-    <input ng-model="searchForm.txDateHigh" id="end-date" type="text" class="form-control">
+    <input ng-model="searchForm.txDate_lte" id="end-date" type="text" class="form-control">
   </div>
   <div class="form-group">
     <!--<payee-select></payee-select>-->

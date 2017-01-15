@@ -3,17 +3,14 @@
     .component( 'txDetail', {
       templateUrl: 'app/tx/tx-detail.component.html',
       controller : TxDetailController,
-      require    : {
-        txComponent: '^^txComponent'
-      },
       bindings   : {
-        tx: '<?'
+        tx: '<'
       }
     } );
 
   function TxDetailController( $log, $stateParams, account ) {
     var ctrl = this;
-
+    /*
     ctrl.$onInit = onInit;
     ctrl.$onChanges = onChanges;
 
@@ -43,6 +40,6 @@
             ctrl.txId = $stateParams.txId;
           }
         } );
-    }
+    }*/
   }
 })( angular );
