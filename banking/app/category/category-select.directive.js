@@ -11,7 +11,7 @@
           restrict   : 'E'
         };
 
-        function CategorySelectController( categoryDAO, $scope ) {
+        function CategorySelectController( categoryDAO, $scope, $element ) {
           categoryDAO.query()
             .then( function( categories ) {
               $scope.categories = categories;
