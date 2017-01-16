@@ -2,8 +2,11 @@
   angular.module( 'payee' )
     .factory( 'payeeDAO', payeeDAO );
 
-  function payeeDAO( $http, $log, $q ) {
+  function payeeDAO( $http, $log, bankingHttpSerializer, $q ) {
     var baseHref = 'http://localhost:8001/payee/',
+      standardOptions = {
+        paramSerializer: bankingHttpSerializer
+      },
       citiesByState = {},
       states = [];
 
@@ -17,7 +20,7 @@
     return dao;
 
     function get( id ) {
-      return $http.get( baseHref + id )
+      return $http.get( baseHref + id, standardOptions )
         .then( function( response ) {
           return response.data;
         }, function( err ) {
@@ -27,7 +30,8 @@
     }
 
     function query( criteria ) {
-      return $http.get( baseHref, { params: criteria } )
+      var options = _.assign( {}, standardOptions, { params: criteria } );
+      return $http.get( baseHref, options )
         .then( function( response ) {
           return response.data;
         }, function( err ) {
