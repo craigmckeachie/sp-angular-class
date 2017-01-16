@@ -51,7 +51,7 @@
     }
 
     function save( tx ) {
-      ctrl.tx.accountId = +ctrl.tx.accountId;
+      tx.accountId = +tx.accountId;
       txDAO.save( tx );
     }
   }

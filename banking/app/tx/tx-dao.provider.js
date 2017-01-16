@@ -13,7 +13,7 @@
       get  : get,
       query: query,
       save : save,
-      // add  : add
+      add  : add
     };
 
     return dao;
@@ -41,14 +41,21 @@
     }
 
     function save( tx ) {
-      $http.put( baseHref + tx.id, tx )
-        .then( function() {
-          dao.get( tx.id )
-            .then( function( returnedTx ) {
-              console.log( 'returnedTx: ', returnedTx );
-            } )
-        } )
+      if ( !tx.id ) {
+        return dao.add( tx );
+      }
 
+      return $http.put( baseHref + tx.id, tx )
+        .then( function( returnedTx ) {
+          console.log( 'returnedTx: ', returnedTx );
+        } )
+    }
+
+    function add( tx ) {
+      return $http.post( baseHref, tx )
+        .then( function( returnedTx ) {
+          console.log( 'returnedTx: ', returnedTx );
+        } );
     }
   }
 })( angular );

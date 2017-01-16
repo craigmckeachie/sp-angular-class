@@ -4,18 +4,27 @@
       templateUrl: 'app/tx/tx-edit.component.html',
       controller : TxEditController,
       bindings   : {
-        tx : '<?',
+        tx    : '<?',
         onSave: '&',
-        add: '@'
+        add   : '@?'
       }
     } );
 
-  function TxEditController($log) {
+  function TxEditController( $log ) {
     var ctrl = this;
     ctrl.save = save;
+    ctrl.$onInit = onInit;
 
-    function save(tx) {
+    function save( tx ) {
       ctrl.onSave( { tx: tx } );
+    }
+
+    function onInit() {
+      console.log( ctrl );
+      if ( ctrl.add === "true" ) {
+        ctrl.tx = {};
+      }
+      console.log( ctrl );
     }
   }
 

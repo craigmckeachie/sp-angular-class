@@ -20,6 +20,10 @@
         url     : '/edit/{id:[0-9]+}',
         template: '<tx-edit tx="$ctrl.tx" on-save="$ctrl.save(tx)"></tx-edit>'
       } )
+      .state( 'tx.add', {
+        url     : '/add',
+        template: '<tx-edit add="true" on-save="$ctrl.save(tx)"></tx-edit>'
+      } )
 
   }
 })( angular );
