@@ -1,0 +1,38 @@
+<div class="dt-container">
+  <div class="dt-head">
+    <div class="row dt-header-row">
+      <div ng-click="$ctrl.toggleSort('payeeName')" class="col-md-4">Payee</div>
+      <div ng-click="$ctrl.toggleSort('city')" class="col-md-4">City</div>
+      <div ng-click="$ctrl.toggleSort('state')" class="col-md-4">State</div>
+    </div>
+    <div class="row">
+      <!-- Add filter fields here!
+      Try this for a template:
+      <div class="col-md-4">
+        <input type="text" ng-model=""> Don't forget to add the ng-model!
+      </div>
+      -->
+      <div class="col-md-4">
+        <input class="form-control" type="text" ng-model="$ctrl.payeeFilter.payeeName">
+      </div>
+      <div class="col-md-4">
+        <input class="form-control" type="text" ng-model="$ctrl.payeeFilter.city">
+      </div>
+      <div class="col-md-4">
+        <input class="form-control" type="text" ng-model="$ctrl.payeeFilter.state">
+      </div>
+
+    </div>
+  </div>
+  <div class="dt-body">
+    <div class="dt-row dt-body-row row"
+         ng-hide="$ctrl.noPayees"
+         ng-click="$ctrl.callSelect(payee)"
+         ng-repeat="payee in $ctrl.payees | filter:$ctrl.payeeFilter | orderBy:$ctrl.sortField">
+      <div class="dt-cell col-md-4 dt-payeeName">{{ payee.payeeName }}</div>
+      <div class="dt-cell col-md-4 dt-payeeCity">{{ payee.city }}</div>
+      <div class="dt-cell col-md-4 dt-payeeState">{{ payee.state }}</div>
+    </div>
+    <div ng-show="$ctrl.noPayees"><h2>No records found.</h2></div>
+  </div>
+</div>

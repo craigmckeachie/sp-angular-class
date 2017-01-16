@@ -9,7 +9,6 @@ proto.*
 .idea
 .jshintrc
 *.pdf
-exercises/
 banking-original/
 Hello*
 npm-debug.log

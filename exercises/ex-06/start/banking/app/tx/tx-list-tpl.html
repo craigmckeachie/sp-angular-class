@@ -1,0 +1,22 @@
+<div class="dt-container">
+  <div class="dt-head">
+    <div class="dt-row dt-header-row">
+      <div class="dt-cell dt-header-cell dt-2-wide">Payee</div>
+      <div class="dt-cell dt-header-cell">Amount</div>
+      <div class="dt-cell dt-header-cell">Type</div>
+      <div class="dt-cell dt-header-cell">Date</div>
+      <div class="dt-cell dt-header-cell">Category</div>
+    </div>
+  </div>
+  <div class="dt-body">
+    <div class="dt-row dt-body-row"
+         ng-click="$ctrl.callSelect(tx)"
+         ng-repeat="tx in $ctrl.transactions | orderBy:'-txDate'">
+      <div class="dt-cell dt-body-cell dt-payeeName dt-2-wide">{{ tx.payee.payeeName }}</div>
+      <div class="dt-cell dt-body-cell dt-amount">{{ tx.amount | currency }}</div>
+      <div class="dt-cell dt-body-cell dt-txType">{{ tx.txType }}</div>
+      <div class="dt-cell dt-body-cell dt-txDate">{{ tx.txDate | date:'yyyy-MM-dd' }}</div>
+      <div class="dt-cell dt-body-cell dt-category">{{ tx.category.categoryName }}</div>
+    </div>
+  </div>
+</div>

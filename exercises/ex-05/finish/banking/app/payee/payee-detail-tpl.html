@@ -1,0 +1,44 @@
+<section class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ $ctrl.payee.payeeName }}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table">
+          <tbody>
+          <tr>
+            <td class="payee-label col-md-2 text-right">Payee Name:</td>
+            <td class="payee-value">{{ $ctrl.payee.payeeName }}</td>
+          </tr>
+          <tr>
+            <td class="payee-label col-md-2 text-right">Payee ID:</td>
+            <td class="payee-value">{{ $ctrl.payee.payeeId }}</td>
+          </tr>
+          <tr>
+            <td class="payee-label col-md-2 text-right">Address:</td>
+            <td class="payee-value">{{ $ctrl.payee.address }}</td>
+          </tr>
+          <tr>
+            <td class="payee-label col-md-2 text-right">City:</td>
+            <td class="payee-value">{{ $ctrl.payee.city }}</td>
+          </tr>
+          <tr>
+            <td class="payee-label col-md-2 text-right">State:</td>
+            <td class="payee-value">{{ $ctrl.payee.state }}</td>
+          </tr>
+          <tr>
+            <td class="payee-label col-md-2 text-right">Zip:</td>
+            <td class="payee-value">{{ $ctrl.payee.zip }}</td>
+          </tr>
+          <tr ng-if="$ctrl.payee.motto">
+            <td class="payee-label col-md-2 text-right">Motto:</td>
+            <td class="payee-value">{{ $ctrl.payee.motto }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
