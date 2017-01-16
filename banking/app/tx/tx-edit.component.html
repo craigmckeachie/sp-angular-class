@@ -1,0 +1,37 @@
+<div class="panel panel-warning">
+  <div class="panel-heading"><h3>Editing transaction {{ $ctrl.tx.id }}</h3></div>
+  <div class="panel-body">
+    <form>
+      <div>
+        <div>
+          <label for="tx-payeeName">Payee:</label>
+          <payee-select ng-model="$ctrl.tx.payee" id="tx-payeeName"></payee-select>
+        </div>
+        <div>
+          <label for="tx-amount">Amount:</label>
+          <input type="number" ng-model="$ctrl.tx.amount" class="form-control" id="tx-amount" step="0.01">
+        </div>
+        <div>
+          <label for="tx-txDate">Date:</label>
+          <input type="text" ng-model="$ctrl.tx.txDate" class="form-control" id="tx-txDate">
+        </div>
+        <div>
+          <label for="tx-txType">Type:</label>
+          <input type="text" ng-model="$ctrl.tx.txType" class="form-control" id="tx-txType">
+        </div>
+        <div>
+          <label for="tx-accountName">Account:</label>
+          <input type="text" ng-model="$ctrl.tx.accountName" class="form-control" id="tx-accountName">
+        </div>
+        <div>
+          <label for="tx-categoryName">Category:</label>
+          <category-select ng-model="$ctrl.tx.category" id="tx-categoryName"></category-select>
+        </div>
+        <div>
+          <label for="tx-txStatus">Status:</label>
+          <input type="text" ng-model="$ctrl.tx.txStatus" class="form-control" id="tx-txStatus">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

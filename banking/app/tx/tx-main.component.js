@@ -16,7 +16,7 @@
       $log.log( 'TxMainController.$onInit()' );
 
       // What if we go to txDetail without going to txList?
-      if ( $state.$current.name === 'tx.detail' && !angular.isDefined( ctrl.tx ) ) {
+      if ( ( $state.$current.name === 'tx.detail' || $state.$current.name === 'tx.edit' ) && !angular.isDefined( ctrl.tx ) ) {
         txDAO.get( $stateParams.id )
           .then( function( tx ) {
             ctrl.tx = tx;
@@ -35,11 +35,10 @@
     }
 
     function swapToList( criteria ) {
-      // Oddly, the
       txDAO.query( criteria )
         .then( function( tx ) {
           ctrl.transactions = tx;
-          $state.go( 'tx.list', criteria, {location: true} );
+          $state.go( 'tx.list', criteria, { location: true } );
         } );
     }
 

@@ -16,6 +16,10 @@
         url     : '/detail/{id:[0-9]+}',
         template: '<tx-detail tx="$ctrl.tx"></tx-detail>'
       } )
+      .state( 'tx.edit', {
+        url     : '/edit/{id:[0-9]+}',
+        template: '<tx-edit tx="$ctrl.tx" on-edit="$ctrl.save(tx)"></tx-edit>'
+      } )
 
   }
 })( angular );
