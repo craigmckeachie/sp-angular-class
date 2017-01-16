@@ -9,7 +9,7 @@
         template: '<tx-search on-search="$ctrl.swapToList(criteria)"></tx-search>'
       } )
       .state( 'tx.list', {
-        url     : '/list?{payee.payeeName_like}&{payeeId:int}&{accountId:int}&{categoryId:int}&{txType}&{txStatus}&{amount_lte}&{amount_gte}&{txDate_lte:date}&{txDate_gte:date}',
+        url     : '/list?{payee.payeeName_like}&{payeeId:int}&{accountId:int}&{category.categoryId:int}&{txType}&{txStatus}&{amount_lte}&{amount_gte}&{txDate_lte:date}&{txDate_gte:date}',
         template: '<tx-list transactions="$ctrl.transactions" on-select="$ctrl.swapToDetail(tx)"></tx-list>'
       } )
       .state( 'tx.detail', {

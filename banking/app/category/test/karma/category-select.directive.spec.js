@@ -2,6 +2,7 @@ describe( 'Testing category-select', function() {
   var $compile, $rootScope, element;
   beforeEach( function() {
     module( 'category' );
+    module( 'foo' );
 
     module( function( $provide ) {
 
@@ -34,7 +35,7 @@ describe( 'Testing category-select', function() {
       $rootScope = _$rootScope_;
     } );
 
-    element = $compile( '<select category-select></select>' )( $rootScope );
+    element = $compile( '<category-select></category-select>' )( $rootScope );
     $rootScope.$digest();
 
   } );
@@ -46,6 +47,8 @@ describe( 'Testing category-select', function() {
   it( 'Should not have anything not on the categories list', function() {
     expect( element.html() ).not.toContain( 'foo' );
   } );
+
+  // TODO: Verify that it does not leak scope
 
   function getCategories() {
     return [

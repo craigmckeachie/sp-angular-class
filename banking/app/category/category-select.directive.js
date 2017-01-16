@@ -3,33 +3,19 @@
     .directive( 'categorySelect',
       function() {
         return {
-          controller      : CategorySelectController,
-          bindToController: true,
-          controllerAs    : '$ctrl',
-          restrict        : 'A',
-          link            : categorySelectLink
+          templateUrl: 'app/category/category-select.directive.html',
+          controller : CategorySelectController,
+          scope      : {
+            ngModel: '='
+          },
+          restrict   : 'E'
         };
 
-        function CategorySelectController( categoryDAO ) {
-          var ctrl = this;
+        function CategorySelectController( categoryDAO, $scope ) {
           categoryDAO.query()
             .then( function( categories ) {
-              ctrl.categories = categories;
+              $scope.categories = categories;
             } )
-        }
-
-        function categorySelectLink( scope, element, attrs, ctrl ) {
-          var options = [];
-
-          scope.$watch( '$ctrl.categories', function() {
-            if ( ctrl.categories ) {
-              ctrl.categories.forEach( function( category ) {
-                options.push( '<option value="' + category.id + '">' + category.categoryName + '</option>' );
-              } );
-              element.html( options.join( '' ) );
-            }
-          } );
-
         }
       } );
 

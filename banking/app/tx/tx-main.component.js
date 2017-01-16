@@ -11,8 +11,6 @@
     ctrl.$onInit = onInit;
     ctrl.swapToList = swapToList;
     ctrl.swapToDetail = swapToDetail;
-    ctrl.getById = getById;
-    ctrl.search = search;
 
     function onInit() {
       $log.log( 'TxMainController.$onInit()' );
@@ -37,7 +35,7 @@
     }
 
     function swapToList( criteria ) {
-      // Oddly, the tx.list transition loses payee.payeeName on the URL
+      // Oddly, the
       txDAO.query( criteria )
         .then( function( tx ) {
           ctrl.transactions = tx;
