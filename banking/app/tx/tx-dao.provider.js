@@ -11,7 +11,9 @@
 
     var dao = {
       get  : get,
-      query: query
+      query: query,
+      save : save,
+      // add  : add
     };
 
     return dao;
@@ -36,6 +38,17 @@
           $log.error( 'Error: txDAO.query(): ', err );
           return $q.reject( err );
         } );
+    }
+
+    function save( tx ) {
+      $http.put( baseHref + tx.id, tx )
+        .then( function() {
+          dao.get( tx.id )
+            .then( function( returnedTx ) {
+              console.log( 'returnedTx: ', returnedTx );
+            } )
+        } )
+
     }
   }
 })( angular );

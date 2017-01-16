@@ -11,6 +11,7 @@
     ctrl.$onInit = onInit;
     ctrl.swapToList = swapToList;
     ctrl.swapToDetail = swapToDetail;
+    ctrl.save = save;
 
     function onInit() {
       $log.log( 'TxMainController.$onInit()' );
@@ -20,6 +21,7 @@
         txDAO.get( $stateParams.id )
           .then( function( tx ) {
             ctrl.tx = tx;
+            ctrl.tx.accountId = "" + ctrl.tx.accountId;
           } )
       }
 
@@ -46,6 +48,11 @@
       tx.accountName = account.getAccountName( tx.accountId );
       ctrl.tx = tx;
       $state.go( 'tx.detail', { id: ctrl.tx.id } );
+    }
+
+    function save( tx ) {
+      ctrl.tx.accountId = +ctrl.tx.accountId;
+      txDAO.save( tx );
     }
   }
 })

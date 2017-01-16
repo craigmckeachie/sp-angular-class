@@ -3,33 +3,37 @@
   <div class="panel-body">
     <form>
       <div>
-        <div>
+        <div class="form-group">
           <label for="tx-payeeName">Payee:</label>
           <payee-select ng-model="$ctrl.tx.payee" id="tx-payeeName"></payee-select>
         </div>
-        <div>
+        <div class="form-group">
           <label for="tx-amount">Amount:</label>
           <input type="number" ng-model="$ctrl.tx.amount" class="form-control" id="tx-amount" step="0.01">
         </div>
-        <div>
+        <div class="form-group">
           <label for="tx-txDate">Date:</label>
           <input type="text" ng-model="$ctrl.tx.txDate" class="form-control" id="tx-txDate">
         </div>
-        <div>
+        <div class="form-group">
           <label for="tx-txType">Type:</label>
           <input type="text" ng-model="$ctrl.tx.txType" class="form-control" id="tx-txType">
         </div>
-        <div>
-          <label for="tx-accountName">Account:</label>
-          <input type="text" ng-model="$ctrl.tx.accountName" class="form-control" id="tx-accountName">
+        <div class="form-group">
+          <label><input type="radio" ng-model="$ctrl.tx.accountId" value="1" name="tx-accountId"> Checking</label>
+          <span> &nbsp; </span>
+          <label><input type="radio" ng-model="$ctrl.tx.accountId" value="2" name="tx-accountId"> Savings</label>
         </div>
-        <div>
+        <div class="form-group">
           <label for="tx-categoryName">Category:</label>
           <category-select ng-model="$ctrl.tx.category" id="tx-categoryName"></category-select>
         </div>
-        <div>
+        <div class="form-group">
           <label for="tx-txStatus">Status:</label>
           <input type="text" ng-model="$ctrl.tx.txStatus" class="form-control" id="tx-txStatus">
+        </div>
+        <div class="text-right">
+          <button ng-click="$ctrl.save($ctrl.tx)" class="btn btn-default btn-lg">Save</button>
         </div>
       </div>
     </form>

@@ -18,7 +18,7 @@
       } )
       .state( 'tx.edit', {
         url     : '/edit/{id:[0-9]+}',
-        template: '<tx-edit tx="$ctrl.tx" on-edit="$ctrl.save(tx)"></tx-edit>'
+        template: '<tx-edit tx="$ctrl.tx" on-save="$ctrl.save(tx)"></tx-edit>'
       } )
 
   }
