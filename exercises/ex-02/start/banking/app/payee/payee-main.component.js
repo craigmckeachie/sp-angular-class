@@ -3,7 +3,7 @@
   /*
    * You will be adding a list of payees to the Payees portion of the application
    * You have some work to do here, then in payee-list-component.js, then in
-   * payee-list-tpl.html
+   * payee-list.component.html
    *
    * Here, you should do the following:
    * Change the template to load payee-list
@@ -13,18 +13,15 @@
    * Then go to payee-list-component.js and follow the instructions there
    */
 
-  angular.module( 'payee.component', ['payee.list'] )
-      .component( 'payeeComponent', {
-        template: '<payee-list></payee-list>',
-        controller: PayeeComponentController
+  angular.module( 'payees' )
+      .component( 'payeeMain', {
+        template: '<h3>Welcome to the {{ $ctrl.componentName }} component.</h3>',
+        controller: PayeeMainController
       } );
 
-  function PayeeComponentController() {
+  function PayeeMainController() {
     var ctrl = this;
-    ctrl.componentName = 'payeeComponent';
-
-    ctrl.getPayees = getPayees;
-
+    ctrl.componentName = 'payeeMain';
   }
 
   function getPayees() {
@@ -480,7 +477,7 @@
         "image": "/images/business/5.jpg",
         "motto": "Streamlined full-range budgetary management"
       }
-    ]
+    ];
   }
 })
 ( angular );

@@ -2,19 +2,19 @@
   /*
    * You will build out this component as follows
    *
-   * Create a new angular module "payee.list" with no dependencies
+   * Register this component with the "payee" module
    *
-   * From that module, create a component, payeeList
-   * It should have a templateUrl pointing to payee-list-tpl.html
+   * Create a component, payeeList
+   * It should have a templateUrl pointing to payee-list.component.html
    * (with an appropriate path)
-   * It should require payeeComponent
-   * It should have a controller, PayeeListComponentController
+   * It should require payeeMain
+   * It should have a controller, PayeeListController
    *
    * In the controller, create a function, loadData
    * It should take no arguments, and, when invoked, should call
-   * getPayees() on payeeComponent and then return the results
+   * getPayees() on payeeMain and then return the results
    *
-   * Go to payee-list-tpl.html and follow the instructions there.
+   * Go to payee-list.component.html and follow the instructions there.
    *
    */
 
