@@ -3,6 +3,7 @@
     .config( txConfig );
 
   function txConfig( $stateProvider, $urlRouterProvider ) {
+    $urlRouterProvider.when( '/tx', '/tx/search' );
     $stateProvider
       .state( 'tx.search', {
         url     : '/search',
