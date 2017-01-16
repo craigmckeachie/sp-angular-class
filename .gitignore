@@ -12,3 +12,4 @@ proto.*
 exercises/
 banking-original/
 Hello*
+npm-debug.log
