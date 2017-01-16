@@ -12,3 +12,4 @@ proto.*
 banking-original/
 Hello*
 npm-debug.log
+tmp/
