@@ -5,7 +5,7 @@
       controller : TxMainController
     } );
 
-  function TxMainController( $log, $state, $stateParams, txDAO, _ ) {
+  function TxMainController( $log, $state, $stateParams, txDAO, _, account ) {
     var ctrl = this;
 
     ctrl.$onInit = onInit;
@@ -44,6 +44,7 @@
     }
 
     function swapToDetail( tx ) {
+      tx.accountName = account.getAccountName( tx.accountId );
       ctrl.tx = tx;
       $state.go( 'tx.detail', { id: ctrl.tx.id } );
     }
