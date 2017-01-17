@@ -1,9 +1,0 @@
-<payee-search on-search="$ctrl.findPayees(criteria)"
-              ng-show="$ctrl.showView['search']"></payee-search>
-<payee-list payees="$ctrl.payees"
-            on-pick="$ctrl.showPayeeDetail(payeeId)"
-            ng-show="$ctrl.showView['list']"></payee-list>
-<payee-detail payee="$ctrl.payee"
-              on-back="$ctrl.showPayeeList()"
-              to-search="$ctrl.showSearch()"
-              ng-show="$ctrl.showView['detail']"></payee-detail>

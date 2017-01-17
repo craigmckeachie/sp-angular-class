@@ -1,92 +1,51 @@
+(function( angular ) {
 /*
- * The objective is to add a search view to the payees portion of the application
- * Some work has already been done for you. The module depends on payee.search,
- * and there's a new utility function, switchView, that toggles between the
- * search, list, and detail views
- * The template has been moved out to a separate file, as it was becoming
- * a bit unwieldy as text
+ * Objectives
+ * * Include the code to display the details of a Payee
+ * * Add an event handler to the list of Payees to show that Payee's details
  *
- * Here, you should add a ctrl.$onInit function (using the revealing module
- * pattern, of course). The function should get the list of payees,
- * initialize an object, ctrl.showView, which has three properties:
- * search, list, and detail, all of which should be set to false.
- * Finally, invoke switchView, passing it an argument of the view
- * we want to start with (hint: the search view!)
+ * We have cleared out the hard-coded payee from this controller.
+ * In its place, you will add an event handler to the controller, selectPayee.
+ * The event handler should take a Payee as an argument and set that Payee as
+ * the selectedPayee for this controller.
  *
- * That's all the work that you need to do. You should definitely check out
- * payee-component-tpl.html, which sets up the views, as well as
- * payee-search.component and payee-search-tpl.html, which set up the search view
  *
- * When you're ready to test code, navigate to
- * http://localhost:8000/AngularClass/banking/#/payees
- * and try searching on a few letters in the Payee Name field. 
+ * Then go to payee-main.component.html and follow the directions there
+ *
+ * When you are finished, load http://localhost:8000/banking/#!/payees
+ * in your browser to test the results
+ *
  */
 
-(function( angular ) {
-  angular.module( 'payee.component', [ 'payee.list', 'payee.detail', 'payee.search' ] )
-      .component( 'payeeComponent', {
-        templateUrl: 'app/payee/payee-component-tpl.html',
-        controller: PayeeComponentController
+  var payee = {
+    "id": 47,
+    "payeeName": "Goodman, Lieber, Kurtzberg, Holliway",
+    "categoryId": 13,
+    "address": "16 W 12 St.",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10015",
+    "image": "/images/animals/9.jpg",
+    "motto": null
+  };
+
+  angular.module( 'payee' )
+      .component( 'payeeMain', {
+        templateUrl: 'app/payee/payee-main.component.html',
+        controller: PayeeMainController
       } );
 
-  function PayeeComponentController( $log, $filter ) {
+  function PayeeMainController() {
     var ctrl = this;
-
-    ctrl.$onInit = onInit;
-    ctrl.findPayees = findPayees;
-    ctrl.showPayeeDetail = showPayeeDetail;
-    ctrl.showPayeeList = showPayeeList;
-    ctrl.showSearch = onInit;
-
-    function onInit() {
-      ctrl.payees = getPayees();
-      ctrl.showView = {
-        search: false,
-        list: false,
-        detail: false
-      };
-      switchView( 'search' );
-    }
-
-    function findPayees(criteria) {
-      var payees = $filter('filter')( getPayees(), criteria );
-      showPayeeList( payees );
-    }
-
-    function showPayeeDetail( payeeId ) {
-      $log.log( 'Show payee detail for payeeId [%s]', payeeId );
-      ctrl.payees.some(function(payee) {
-        if (payee.payeeId === payeeId) {
-        ctrl.payee = payee;
-          return true;
-      }
-      });
-
-      switchView( 'detail' );
-    }
-
-    function showPayeeList(payees) {
-      if (payees) {
-        ctrl.payees = payees;
-      }
-
-      switchView( 'list' );
-    }
-
-    function switchView(chosenView) {
-      Object.keys(ctrl.showView).forEach(function(viewName) {
-        ctrl.showView[viewName] = false;
-      });
-
-      ctrl.showView[chosenView] = true;
-    }
+    ctrl.componentName = 'payeeMain';
+    ctrl.payee = payee;
+    ctrl.payees = getPayees();
   }
-
 
   function getPayees() {
     return [
       {
-        "payeeId": 1,
+        "id": 1,
         "payeeName": "DCH Mortgages",
         "categoryId": 9,
         "address": "1285 Rezlog Plaza",
@@ -97,7 +56,7 @@
         "motto": null
       },
       {
-        "payeeId": 2,
+        "id": 2,
         "payeeName": "Ill Communication Telephones",
         "categoryId": 22,
         "address": "1597 Figole Grove",
@@ -108,7 +67,7 @@
         "motto": null
       },
       {
-        "payeeId": 3,
+        "id": 3,
         "payeeName": "Erol's Internet",
         "categoryId": 22,
         "address": "453 Lomhab Junction",
@@ -119,7 +78,7 @@
         "motto": null
       },
       {
-        "payeeId": 4,
+        "id": 4,
         "payeeName": "Acme Gas and Electric",
         "categoryId": 22,
         "address": "1669 Divided Court",
@@ -130,7 +89,7 @@
         "motto": null
       },
       {
-        "payeeId": 5,
+        "id": 5,
         "payeeName": "Happiness Gym",
         "categoryId": 8,
         "address": "1569 Falls Rd.",
@@ -141,7 +100,7 @@
         "motto": null
       },
       {
-        "payeeId": 6,
+        "id": 6,
         "payeeName": "Shop-Rite Grocery Store",
         "categoryId": 5,
         "address": "311 St. Paul Ave.",
@@ -152,7 +111,7 @@
         "motto": null
       },
       {
-        "payeeId": 7,
+        "id": 7,
         "payeeName": "Sushi Land",
         "categoryId": 18,
         "address": "808 Calvert St.",
@@ -163,7 +122,7 @@
         "motto": null
       },
       {
-        "payeeId": 8,
+        "id": 8,
         "payeeName": "Worthless Peon Productions",
         "categoryId": 19,
         "address": "125 Scrub Street",
@@ -174,7 +133,7 @@
         "motto": null
       },
       {
-        "payeeId": 9,
+        "id": 9,
         "payeeName": "The CX Institute",
         "categoryId": 19,
         "address": "1715 Greymalkin Lane",
@@ -185,7 +144,7 @@
         "motto": null
       },
       {
-        "payeeId": 10,
+        "id": 10,
         "payeeName": "Gleichner, Lind and Olson, Ltd.",
         "categoryId": 17,
         "address": "142 Wune Street",
@@ -196,7 +155,7 @@
         "motto": "Optimized executive frame"
       },
       {
-        "payeeId": 11,
+        "id": 11,
         "payeeName": "Bradtke Brothers, Grocers",
         "categoryId": 7,
         "address": "1076 Dedza Ridge",
@@ -207,7 +166,7 @@
         "motto": "Proactive local function"
       },
       {
-        "payeeId": 12,
+        "id": 12,
         "payeeName": "Klein Cars",
         "categoryId": 1,
         "address": "1939 Rolfs Pass",
@@ -218,7 +177,7 @@
         "motto": "Seamless heuristic process improvement"
       },
       {
-        "payeeId": 13,
+        "id": 13,
         "payeeName": "Russel Group",
         "categoryId": 20,
         "address": "218 Utba Terrace",
@@ -229,7 +188,7 @@
         "motto": "Cloned impactful open system"
       },
       {
-        "payeeId": 14,
+        "id": 14,
         "payeeName": "Mitchell-Sporer",
         "categoryId": 6,
         "address": "1249 Hisog Place",
@@ -240,7 +199,7 @@
         "motto": "Face to face local collaboration"
       },
       {
-        "payeeId": 15,
+        "id": 15,
         "payeeName": "Kerluke Amusements",
         "categoryId": 21,
         "address": "1729 Bozoz Mill",
@@ -251,7 +210,7 @@
         "motto": "Phased reciprocal product"
       },
       {
-        "payeeId": 16,
+        "id": 16,
         "payeeName": "Spinka Salon",
         "categoryId": 2,
         "address": "857 Givce Turnpike",
@@ -262,7 +221,7 @@
         "motto": "Monitored encompassing workforce"
       },
       {
-        "payeeId": 17,
+        "id": 17,
         "payeeName": "Bauch-Stehr Medical Partners",
         "categoryId": 8,
         "address": "671 York Ave",
@@ -273,7 +232,7 @@
         "motto": "Versatile optimizing support"
       },
       {
-        "payeeId": 18,
+        "id": 18,
         "payeeName": "Legros, Trantow and Kub",
         "categoryId": 4,
         "address": "1189 Tele Highway",
@@ -284,7 +243,7 @@
         "motto": "Future-proofed analyzing frame"
       },
       {
-        "payeeId": 19,
+        "id": 19,
         "payeeName": "The Senator Theater",
         "categoryId": 15,
         "address": "1689 North York Rd",
@@ -295,7 +254,7 @@
         "motto": "Yesterday's movies tomorrow"
       },
       {
-        "payeeId": 20,
+        "id": 20,
         "payeeName": "Zieme & Ratke, Pediatrics",
         "categoryId": 14,
         "address": "1873 Razif Loop",
@@ -306,7 +265,7 @@
         "motto": "Multi-lateral grid-enabled toolset"
       },
       {
-        "payeeId": 21,
+        "id": 21,
         "payeeName": "Prosacco Day Care",
         "categoryId": 12,
         "address": "503 Fotef Square",
@@ -317,7 +276,7 @@
         "motto": "User-friendly bottom-line hardware"
       },
       {
-        "payeeId": 22,
+        "id": 22,
         "payeeName": "Heathcote Inc",
         "categoryId": 3,
         "address": "798 Defaj Point",
@@ -328,7 +287,7 @@
         "motto": "Secured web-enabled Graphical Clothing Interface"
       },
       {
-        "payeeId": 23,
+        "id": 23,
         "payeeName": "Davis, Muller and Marvin",
         "categoryId": 21,
         "address": "319 Nazmo Road",
@@ -339,7 +298,7 @@
         "motto": "Persevering regional moratorium"
       },
       {
-        "payeeId": 24,
+        "id": 24,
         "payeeName": "Boehm, Bernhard and Lebsack",
         "categoryId": 16,
         "address": "1146 Kubo Parkway",
@@ -350,7 +309,7 @@
         "motto": "Function-based logistical paradigm"
       },
       {
-        "payeeId": 25,
+        "id": 25,
         "payeeName": "Kohler, Runolfsdottir and Torp",
         "categoryId": 11,
         "address": "841 Pewuj Court",
@@ -361,7 +320,7 @@
         "motto": "Diverse optimizing paradigm"
       },
       {
-        "payeeId": 26,
+        "id": 26,
         "payeeName": "Hill-Harvey",
         "categoryId": 21,
         "address": "858 Pekcip Parkway",
@@ -372,7 +331,7 @@
         "motto": "Synchronised systemic internet solution"
       },
       {
-        "payeeId": 27,
+        "id": 27,
         "payeeName": "Deckow-Hand",
         "categoryId": 10,
         "address": "1622 Avena Circle",
@@ -383,7 +342,7 @@
         "motto": "Cloned directional attitude"
       },
       {
-        "payeeId": 28,
+        "id": 28,
         "payeeName": "Veum Industrial Products",
         "categoryId": 10,
         "address": "587 Ipobak Terrace",
@@ -394,7 +353,7 @@
         "motto": "Operative maximized matrices"
       },
       {
-        "payeeId": 29,
+        "id": 29,
         "payeeName": "Watsica Design",
         "categoryId": 10,
         "address": "289 Vaewi Avenue",
@@ -405,7 +364,7 @@
         "motto": "Streamlined full-range budgetary management"
       },
       {
-        "payeeId": 32,
+        "id": 32,
         "payeeName": "The Wolf and Tortoise",
         "categoryId": 18,
         "address": "1939 Hetuv Pass",
@@ -416,7 +375,7 @@
         "motto": "Seamless heuristic process improvement"
       },
       {
-        "payeeId": 35,
+        "id": 35,
         "payeeName": "Bauch Opicians",
         "categoryId": 14,
         "address": "1729 Bozoz Mill",
@@ -427,7 +386,7 @@
         "motto": "Phased reciprocal product"
       },
       {
-        "payeeId": 38,
+        "id": 38,
         "payeeName": "Legos, Legos, Legos",
         "categoryId": 21,
         "address": "1189 Tele Highway",
@@ -438,7 +397,7 @@
         "motto": "Future-proofed analyzing frame"
       },
       {
-        "payeeId": 39,
+        "id": 39,
         "payeeName": "Rau, Kertzmann and Cremin",
         "categoryId": 15,
         "address": "1689 Kefoz Plaza",
@@ -449,7 +408,7 @@
         "motto": "Grass-roots composite infrastructure"
       },
       {
-        "payeeId": 40,
+        "id": 40,
         "payeeName": "Quigley's Steaks",
         "categoryId": 18,
         "address": "1873 Razif Loop",
@@ -460,7 +419,7 @@
         "motto": "Multi-lateral grid-enabled toolset"
       },
       {
-        "payeeId": 43,
+        "id": 43,
         "payeeName": "Wayne Enterprises",
         "categoryId": 10,
         "address": "319 Thomas Wayne Road",
@@ -471,7 +430,7 @@
         "motto": "Persevering regional moratorium"
       },
       {
-        "payeeId": 44,
+        "id": 44,
         "payeeName": "Stark Electronics",
         "categoryId": 4,
         "address": "1146 Kubo Parkway",
@@ -482,7 +441,7 @@
         "motto": "Function-based logistical paradigm"
       },
       {
-        "payeeId": 45,
+        "id": 45,
         "payeeName": "Tyrell Corporation",
         "categoryId": 19,
         "address": "841 Pewuj Court",
@@ -493,7 +452,7 @@
         "motto": "Diverse optimizing paradigm"
       },
       {
-        "payeeId": 46,
+        "id": 46,
         "payeeName": "Yoyodyne Propulsion Systems",
         "categoryId": 10,
         "address": "16 Blue Blazer Way",
@@ -504,7 +463,7 @@
         "motto": "Synchronised systemic internet solution"
       },
       {
-        "payeeId": 47,
+        "id": 47,
         "payeeName": "Goodman, Lieber, Kurtzberg, Holliway",
         "categoryId": 13,
         "address": "16 W 12 St.",
@@ -515,7 +474,7 @@
         "motto": null
       },
       {
-        "payeeId": 48,
+        "id": 48,
         "payeeName": "Rodriguez Computing",
         "categoryId": 4,
         "address": "587 Ipobak Terrace",
@@ -526,7 +485,7 @@
         "motto": "Operative maximized matrices"
       },
       {
-        "payeeId": 49,
+        "id": 49,
         "payeeName": "Tower Shields",
         "categoryId": 10,
         "address": "289 Vaewi Avenue",
@@ -538,5 +497,4 @@
       }
     ]
   }
-})
-( angular );
+})( angular );

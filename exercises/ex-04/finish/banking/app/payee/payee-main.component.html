@@ -1,0 +1,40 @@
+<!--
+Add an event handler to the li with the ng-repeat, which calls selectPayee
+on the controller, passing in the selected Payee
+
+Uncomment the code below to reveal the Payee detail portion of the view.
+Add a directive which will show the panel only if selectedPayee is defined
+Then display the appropriate parts of the selected Payee in that part of the view.
+Include these properties:
+* payeeName
+* id
+* address
+* city
+* state
+* zip
+-->
+
+<div class="row">
+  <div class="col-md-6">
+    <ul class="list-unstyled">
+      <li ng-click="$ctrl.selectPayee(payee)"
+          ng-repeat="payee in $ctrl.payees | orderBy: 'payeeName'">{{ payee.payeeName }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-6" ng-show="$ctrl.selectedPayee">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3>{{ $ctrl.selectedPayee.payeeName }}</h3>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item">Payee id: {{ $ctrl.selectedPayee.id }}</li>
+        <li class="list-group-item">{{ $ctrl.selectedPayee.address }}</li>
+        <li class="list-group-item">
+          {{ $ctrl.selectedPayee.city }}, {{ $ctrl.selectedPayee.state }} {{ $ctrl.selectedPayee.zip }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
