@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-3">
+    <button ng-click="$ctrl.show = !$ctrl.show" class="btn btn-danger">Hide/Show</button>
+  </div>
+  <div class="col-md-6">
+    <div ng-show="$ctrl.show" style="height: 200px; width: 200px; background-color: red">
+      <p style="position:relative; top: 82px; left: 50px; color: white; font-size: 16pt">Watch me</p>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin-top: 20px">
+  <div class="col-md-3">
+    <button ng-click="$ctrl.inDOM = !$ctrl.inDOM" class="btn btn-primary">If</button>
+  </div>
+  <div class="col-md-6">
+    <div ng-show="$ctrl.inDOM" style="height: 200px; width: 200px; background-color: blue">
+      <p style="position:relative; top: 82px; left: 50px; color: white; font-size: 16pt">Watch me</p>
+    </div>
+  </div>
+</div>
