@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6">
+    <button ng-click="$ctrl.clickHandler($event)" class="btn btn-primary">Click Me</button>
+  </div>
+  <div class="col-md-6">
+    <div ng-mouseenter="$ctrl.enterHandler()"
+         ng-mouseleave="$ctrl.leaveHandler()"
+         style="height: 200px; width: 200px; background-color: red">
+      <p style="position:relative; top: 82px; left: 30px; color: white; font-size: 16pt">Hover over me</p>
+    </div>
+  </div>
+</div>
