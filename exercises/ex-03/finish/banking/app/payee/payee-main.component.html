@@ -1,0 +1,30 @@
+<!--
+Comment out the HTML below, as we will need it later.
+
+Add HTML which will display payeeNames in an unordered list
+Order the list by payeeName
+
+Feel free to use Bootstrap classes to improve the appearance of the list
+
+-->
+
+<div class="row">
+  <div class="col-md-6">
+    <ul class="list-unstyled">
+      <li ng-repeat="payee in $ctrl.payees | orderBy: 'payeeName'">{{ payee.payeeName }}</li>
+    </ul>
+  </div>
+</div>
+
+<!--
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>{{ $ctrl.payee.payeeName }}</h3>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">Payee id: {{ $ctrl.payee.id }}</li>
+    <li class="list-group-item">{{ $ctrl.payee.address }}</li>
+    <li class="list-group-item">{{ $ctrl.payee.city }}, {{ $ctrl.payee.state }} {{ $ctrl.payee.zip }}</li>
+  </ul>
+</div>
+-->

@@ -1,56 +1,42 @@
-/*
- * The objective is to add a detail view to the payees section of the application
- * The two views will be managed from here.
- *
- * Change the template as follows:
- * payee-list should take three attributes:
- * payees : an array of payees
- * on-pick: A callback to ctrl.showPayeeDetail, passing in a payeeId
- * ng-show: When ctrl.showDetail is false
- *
- * Add another line to the template, including the payee-detail component
- * It should take three attributes
- * payee: A selected payee, represented by ctrl.payee
- * on-back: A callback to ctrl.showPayeeList
- * ng-show: When ctrl.showDetail is true
- *
- * Note that ctrl.showPayeeDetail and ctrl.showPayeeList have already been
- * defined for you
- *
- * Go over to payee-list.component.js and complete the directions there.
- */
 (function( angular ) {
-  angular.module( 'payee.component', [ 'payee.list', 'payee.detail' ] )
-      .component( 'payeeComponent', {
-        template: '<payee-list payees="$ctrl.payees" on-pick="$ctrl.showPayeeDetail(payeeId)" ng-show="!$ctrl.showDetail"></payee-list>' +
-        '<payee-detail payee="$ctrl.payee" on-back="$ctrl.showPayeeList()" ng-show="$ctrl.showDetail"></payee-detail>',
-        controller: PayeeComponentController
+/*
+ * Objectives
+ * * Make an array of Payees available to the controller
+ * * Use ng-repeat to display those Payees in the view
+ *
+ * The function getPayees() will return an array of Payees
+ * Use it to assign that array of payees to a property on the controller
+ *
+ * Then go to payee-main.component.html and follow the directions there
+ *
+ * When you are finished, load http://localhost:8000/banking/#!/payees
+ * in your browser to test the results
+ *
+ */
+
+  var payee = {
+    "id": 47,
+    "payeeName": "Goodman, Lieber, Kurtzberg, Holliway",
+    "categoryId": 13,
+    "address": "16 W 12 St.",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10015",
+    "image": "/images/animals/9.jpg",
+    "motto": null
+  };
+
+  angular.module( 'payee' )
+      .component( 'payeeMain', {
+        templateUrl: 'app/payee/payee-main.component.html',
+        controller: PayeeMainController
       } );
 
-  function PayeeComponentController( $log ) {
+  function PayeeMainController() {
     var ctrl = this;
-    ctrl.componentName = 'payeeComponent';
-    ctrl.showDetail = false;
-    ctrl.payees = getPayees();
+    ctrl.componentName = 'payeeMain';
+    ctrl.payee = payee;
 
-    ctrl.showPayeeDetail = showPayeeDetail;
-    ctrl.showPayeeList = showPayeeList;
-
-    function showPayeeDetail( payeeId ) {
-      $log.log( 'Show payee detail for payeeId [%s]', payeeId );
-      ctrl.payees.some(function(payee) {
-        if (payee.payeeId === payeeId) {
-          ctrl.payee = payee;
-          return true;
-        }
-      });
-
-      ctrl.showDetail = true;
-    }
-
-    function showPayeeList() {
-      ctrl.showDetail = false;
-    }
   }
 
   function getPayees() {
@@ -508,5 +494,4 @@
       }
     ]
   }
-})
-( angular );
+})( angular );
