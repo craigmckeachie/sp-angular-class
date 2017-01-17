@@ -1,0 +1,28 @@
+<!--
+Move the HTML code from payee-main.component.html here
+
+Then return to payee-main.component.js for instructions on how to test this code.
+-->
+
+<div class="col-md-6">
+  <ul class="list-unstyled">
+    <li ng-click="$ctrl.selectPayee(payee)"
+        ng-repeat="payee in $ctrl.payees | orderBy: 'payeeName'">{{ payee.payeeName }}
+    </li>
+  </ul>
+</div>
+
+<div class="col-md-6" ng-show="$ctrl.selectedPayee">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>{{ $ctrl.selectedPayee.payeeName }}</h3>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">Payee id: {{ $ctrl.selectedPayee.id }}</li>
+      <li class="list-group-item">{{ $ctrl.selectedPayee.address }}</li>
+      <li class="list-group-item">
+        {{ $ctrl.selectedPayee.city }}, {{ $ctrl.selectedPayee.state }} {{ $ctrl.selectedPayee.zip }}
+      </li>
+    </ul>
+  </div>
+</div>
