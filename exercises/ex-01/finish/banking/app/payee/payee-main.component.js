@@ -4,6 +4,7 @@
    *
    * Register a new angular component, 'payee-main.component' with the
    * module 'payee'. Do not create a new module, use the existing one.
+   * (It's defined in payee.module.js)
    *
    * The component has no dependencies but has a configuration with a
    * template property and a controller property
