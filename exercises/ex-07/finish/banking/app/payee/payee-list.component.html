@@ -1,0 +1,6 @@
+<ul class="list-unstyled">
+  <li ng-click="$ctrl.selectPayee(payee)"
+      ng-repeat="payee in $ctrl.payees | orderBy: 'payeeName'">{{ payee.payeeName }}
+  </li>
+</ul>
+

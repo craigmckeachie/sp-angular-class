@@ -1,0 +1,17 @@
+<!--
+The calls to payee-list and payee-detail have been consolidated here
+They are now siblings, rather than parent and child
+
+On payee-list, invoke the callback binding you defined in the bindings
+configuration of payeeList, passing it the callback function you
+defined in payeeMain
+-->
+
+<div class="row">
+  <div class="col-md-6">
+    <payee-list payees="$ctrl.payees" on-payee-select="$ctrl.selectPayee(payee)"></payee-list>
+  </div>
+  <div class="col-md-6" ng-show="$ctrl.payee">
+    <payee-detail payee="$ctrl.payee"></payee-detail>
+  </div>
+</div>

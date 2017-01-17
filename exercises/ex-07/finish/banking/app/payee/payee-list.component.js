@@ -16,17 +16,18 @@
       templateUrl: 'app/payee/payee-list.component.html',
       controller : PayeeListController,
       bindings   : {
-        payees: '<'
+        payees       : '<',
+        onPayeeSelect: '&'
       }
     } );
 
-  function PayeeListController( ) {
+  function PayeeListController() {
     var ctrl = this;
 
     ctrl.selectPayee = selectPayee;
 
     function selectPayee( payee ) {
-      ctrl.selectedPayee = payee;
+      ctrl.onPayeeSelect( { payee: payee } );
     }
 
   }
