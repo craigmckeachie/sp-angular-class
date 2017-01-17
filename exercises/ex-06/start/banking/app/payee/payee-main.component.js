@@ -26,7 +26,7 @@
   function PayeeMainController() {
     var ctrl = this;
     ctrl.componentName = 'payeeMain';
-    ctrl.getPayees = getPayees;
+    ctrl.payees = getPayees();
   }
 
   function getPayees() {
