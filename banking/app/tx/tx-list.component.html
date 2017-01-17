@@ -29,7 +29,6 @@
   </div>
   <div class="dt-body">
     <div class="dt-row dt-body-row row"
-         ng-hide="$ctrl.noTx"
          ng-click="$ctrl.callSelect(tx)"
          ng-repeat="tx in $ctrl.transactions | filter:$ctrl.listFilter | orderBy:$ctrl.sortField">
       <div class="dt-cell col-md-4 dt-payeeName dt-2-wide">{{ tx.payee.payeeName }}</div>
@@ -38,6 +37,5 @@
       <div class="dt-cell col-md-2 dt-txDate">{{ tx.txDate | date:'yyyy-MM-dd' }}</div>
       <div class="dt-cell col-md-2 dt-category">{{ tx.category.categoryName }}</div>
     </div>
-    <div ng-show="$ctrl.noTx"><h2>No records found.</h2></div>
   </div>
 </div>
