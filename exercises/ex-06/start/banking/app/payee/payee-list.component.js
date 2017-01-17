@@ -1,59 +1,40 @@
-/*
- * The directions are interspersed throughout this document, look for comments
- * that start with the multi-line comment indicator: /*
- */
 (function( angular ) {
-  angular.module( 'payee.list', [] )
-      .component( 'payeeList', {
-        templateUrl: 'app/payee/payee-list-tpl.html',
-        controller: PayeeListController,
-        require: {
-          payeeComponent: '^^payeeComponent'
-        },
-        bindings: {
-          payees: '<',
-          onSelect: '&'
-        }
-      } );
-
   /*
-   * Add a dependency on payeeUtils here
+   * The payeeList component will have a list of transactions sent to it
+   * by property binding, instead of requiring payeeMain
+   *
+   * Remove the require configuration
+   * Remove (or comment out) the $onInit function
+   *
+   * Replace it with a bindings configuration which expects a one-way data-bound
+   * set of Payees from the property "payees"
+   *
+   * Then go to payee-main.component.html and pass the payees from that component
+   * to this one.
+   *
    */
-  function PayeeListController( $log, $stateParams ) {
+
+  angular.module( 'payee' )
+    .component( 'payeeList', {
+      templateUrl: 'app/payee/payee-list.component.html',
+      controller : PayeeListController,
+      require    : {
+        payeeMain: '^^payeeMain'
+      }
+    } );
+
+  function PayeeListController( $stateParams ) {
     var ctrl = this;
 
     ctrl.$onInit = onInit;
-    ctrl.callSelect = callSelect;
+    ctrl.selectPayee = selectPayee;
 
     function onInit() {
-      $log.log( 'plc.$onInit()' );
-      $log.log( 'ctrl.payees: ', ctrl.payees );
-
-      var criteriaKeys = Object.keys( $stateParams );
-      if ( criteriaKeys.length > 1 && !ctrl.payees ) {
-        updatePayee( $stateParams );
-
-        /*
-         * Add an else if that runs updatePayee() if payeeUtils.sameParams, passed
-         * $stateParams, returns false
-         */
-      }
-
+      ctrl.payees = ctrl.payeeMain.getPayees();
     }
 
-    function callSelect( clickedPayee ) {
-      ctrl.onSelect( { payee: clickedPayee } );
-    }
-
-    function updatePayee( criteria ) {
-      /*
-       * Run criteria through payeeUtils.paramsToCriteria() before it goes to
-       * ctrl.payeeComponent.search()
-       */
-
-
-
-      ctrl.payees = ctrl.payeeComponent.search( criteria );
+    function selectPayee( payee ) {
+      ctrl.selectedPayee = payee;
     }
 
   }

@@ -1,0 +1,24 @@
+<!--
+Move the code between "Start here" and "End here" into payee-detail.component.html
+
+Replace it with a reference to the payee-detail component.
+Bind the appropriate reference to the payee property on payee-detail
+
+Then go to payee-detail.component.html
+-->
+
+<div class="col-md-6">
+  <ul class="list-unstyled">
+    <li ng-click="$ctrl.selectPayee(payee)"
+        ng-repeat="payee in $ctrl.payees | orderBy: 'payeeName'">{{ payee.payeeName }}
+    </li>
+  </ul>
+</div>
+
+<div class="col-md-6" ng-show="$ctrl.selectedPayee">
+
+  <!-- Start here -->
+  <payee-detail payee="$ctrl.selectedPayee"></payee-detail>
+  <!-- End here -->
+
+</div>

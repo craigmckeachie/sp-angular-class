@@ -1,0 +1,20 @@
+<!--
+Paste the code from payee-list.component.html here
+
+Change the references from $ctrl.selectedPayee to $ctrl.payee
+
+Then return to payee-main.component for testing instructions
+-->
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>{{ $ctrl.payee.payeeName }}</h3>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">Payee id: {{ $ctrl.payee.id }}</li>
+    <li class="list-group-item">{{ $ctrl.payee.address }}</li>
+    <li class="list-group-item">
+      {{ $ctrl.payee.city }}, {{ $ctrl.payee.state }} {{ $ctrl.payee.zip }}
+    </li>
+  </ul>
+</div>
