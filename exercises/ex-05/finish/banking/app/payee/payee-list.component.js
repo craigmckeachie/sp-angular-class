@@ -24,7 +24,7 @@
       }
     } );
 
-  function PayeeListController( $stateParams ) {
+  function PayeeListController( ) {
     var ctrl = this;
 
     ctrl.$onInit = onInit;
