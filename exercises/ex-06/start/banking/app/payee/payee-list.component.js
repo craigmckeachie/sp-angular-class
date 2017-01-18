@@ -23,7 +23,7 @@
       }
     } );
 
-  function PayeeListController( ) {
+  function PayeeListController() {
     var ctrl = this;
 
     ctrl.$onInit = onInit;

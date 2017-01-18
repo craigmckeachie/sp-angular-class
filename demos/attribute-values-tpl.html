@@ -1,35 +1,36 @@
-  <section class="row">
-    <div class="col-sm-8">
-      <p>A simple directive <br>
-        &lt;simple-greeting&gt;&lt;/simple-greeting&gt; <br>
-        <simple-greeting></simple-greeting>
-      </p>
-      <p>A directive which takes an @ argument: <br>
-        &lt;at-greeting name="John"&gt;&lt;/at-greeting&gt; <br>
-        <at-greeting name="John"></at-greeting>
-      </p>
-      <p>What if we want to pass something from the controller? <br>
-        &lt;at-greeting name="$ctrl.person.name"&gt;&lt;/at-greeting&gt; <br>
-        <at-greeting name="$ctrl.person.name"></at-greeting>
-      </p>
-      <p>That didn't work, let's try <br>
-        <span ng-non-bindable>&lt;at-greeting name="{{ $ctrl.person.name }}"&gt;&lt;/at-greeting&gt;</span>
-        <br>
-        <at-greeting name="{{ $ctrl.person.name }}"></at-greeting>
-      </p>
-      <p>Somewhat unsatisfying. Let's use = to pass in a value <br>
-        &lt;equal-greeting name="$ctrl.person.name"&gt;&lt;/equal-greeting&gt; <br>
-        <equal-greeting name="$ctrl.person.name"></equal-greeting>
-      </p>
+<section class="row">
+  <div class="col-sm-8">
+    <p>A simple directive <br>
+      &lt;simple-greeting&gt;&lt;/simple-greeting&gt; <br>
+      <simple-greeting></simple-greeting>
+    </p>
+    <p>A directive which takes an @ argument: <br>
+      &lt;at-greeting name="John"&gt;&lt;/at-greeting&gt; <br>
+      <at-greeting name="John"></at-greeting>
+    </p>
+    <p>What if we want to pass something from the controller? <br>
+      &lt;at-greeting name="$ctrl.person.name"&gt;&lt;/at-greeting&gt; <br>
+      <at-greeting name="$ctrl.person.name"></at-greeting>
+    </p>
+    <p>That didn't work, let's try <br>
+      <span ng-non-bindable>&lt;at-greeting name="{{ $ctrl.person.name }}"&gt;&lt;/at-greeting&gt;</span>
+      <br>
+      <at-greeting name="{{ $ctrl.person.name }}"></at-greeting>
+    </p>
+    <p>Somewhat unsatisfying. Let's use = to pass in a value <br>
+      &lt;equal-greeting name="$ctrl.person.name"&gt;&lt;/equal-greeting&gt; <br>
+      <equal-greeting name="$ctrl.person.name"></equal-greeting>
+    </p>
 
-      <p>Heck, we could even pass in a complete object! <br>
-        &lt;object-greeting obj="$ctrl.person"&gt;&lt;/object-greeting&gt; <br>
-        <object-greeting obj="$ctrl.person"></object-greeting>
-      </p>
+    <p>Heck, we could even pass in a complete object! <br>
+      &lt;object-greeting obj="$ctrl.person"&gt;&lt;/object-greeting&gt; <br>
+      <object-greeting obj="$ctrl.person"></object-greeting>
+    </p>
 
-      <p>Sometimes, you want to pass in some code to execute, which is what &amp; is for.
-        Here, we will pass in the callMe() function. Click on the content below to activate it.</p>
-      &lt;event-greeting on-click="$ctrl.callMe()"&gt;&lt;/event-greeting&gt; <br>
-      <event-greeting obj="$ctrl.person" on-click="$ctrl.callMe()" ng-class="{highlight: $ctrl.toggleHighlight}"></event-greeting>
-    </div>
-  </section>
+    <p>Sometimes, you want to pass in some code to execute, which is what &amp; is for.
+      Here, we will pass in the callMe() function. Click on the content below to activate it.</p>
+    &lt;event-greeting on-click="$ctrl.callMe()"&gt;&lt;/event-greeting&gt; <br>
+    <event-greeting obj="$ctrl.person" on-click="$ctrl.callMe()"
+                    ng-class="{highlight: $ctrl.toggleHighlight}"></event-greeting>
+  </div>
+</section>

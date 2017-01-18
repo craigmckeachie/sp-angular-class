@@ -18,22 +18,22 @@
    */
 
   var payee = {
-    "id": 47,
-    "payeeName": "Goodman, Lieber, Kurtzberg, Holliway",
+    "id"        : 47,
+    "payeeName" : "Goodman, Lieber, Kurtzberg, Holliway",
     "categoryId": 13,
-    "address": "16 W 12 St.",
-    "city": "New York",
-    "state": "NY",
-    "zip": "10015",
-    "image": "/images/animals/9.jpg",
-    "motto": null
+    "address"   : "16 W 12 St.",
+    "city"      : "New York",
+    "state"     : "NY",
+    "zip"       : "10015",
+    "image"     : "/images/animals/9.jpg",
+    "motto"     : null
   };
 
   angular.module( 'payee' )
-      .component( 'payeeMain', {
-        templateUrl: 'app/payee/payee-main.component.html',
-        controller: PayeeMainController
-      } );
+    .component( 'payeeMain', {
+      templateUrl: 'app/payee/payee-main.component.html',
+      controller : PayeeMainController
+    } );
 
   function PayeeMainController() {
     var ctrl = this;

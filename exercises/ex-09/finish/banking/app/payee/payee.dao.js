@@ -7,35 +7,35 @@
  */
 (function( angular ) {
   angular.module( 'payee.dao', [] )
-      .factory( 'payeeDAO', function( $http, $q ) {
-        var baseHref = 'http://localhost:7100/banking/payee/';
+    .factory( 'payeeDAO', function( $http, $q ) {
+      var baseHref = 'http://localhost:7100/banking/payee/';
 
-        var dao = {
-          get: get,
-          query: query
-        };
+      var dao = {
+        get  : get,
+        query: query
+      };
 
-        return dao;
+      return dao;
 
-        function get( id ) {
-          return $http.get( baseHref + id )
-              .then( function( results ) {
-                return results.data;
-              }, function( err ) {
-                $log.error( 'payeeDAO.get() error: ', err );
-                return $q.reject( err );
-              } );
-        }
+      function get( id ) {
+        return $http.get( baseHref + id )
+          .then( function( results ) {
+            return results.data;
+          }, function( err ) {
+            $log.error( 'payeeDAO.get() error: ', err );
+            return $q.reject( err );
+          } );
+      }
 
-        function query( criteria ) {
-          return $http.get( baseHref, { params: criteria } )
-              .then( function( results ) {
-                return results.data;
-              }, function( err ) {
-                $log.error( 'payeeDAO.query() error: ', err );
-                return $q.reject( err );
-              } );
-        }
+      function query( criteria ) {
+        return $http.get( baseHref, { params: criteria } )
+          .then( function( results ) {
+            return results.data;
+          }, function( err ) {
+            $log.error( 'payeeDAO.query() error: ', err );
+            return $q.reject( err );
+          } );
+      }
 
-      } )
+    } )
 })( angular );

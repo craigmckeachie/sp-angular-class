@@ -1,4 +1,4 @@
 (function( angular, _, window ) {
   angular.module( 'common.lodash', [] )
-    .value( '_', _);
+    .value( '_', _ );
 })( angular, window._, window );

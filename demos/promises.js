@@ -1,15 +1,15 @@
 (function( angular ) {
   angular.module( 'examples.promises', [] )
-      .component( 'promiseChain', {
-        template: '<p>This is the promise-chain component</p>' +
-        '<p>Results: </p>' +
-        '<ul>' +
-        '<li>Transaction id: {{ $ctrl.tx.txId }}</li>' +
-        '<li>Transaction payee: {{ $ctrl.tx.payee.payeeName }}</li>' +
-        '<li>Transaction amount: {{ $ctrl.tx.amount | currency }}</li>' +
-        '</ul>',
-        controller: PromiseChainController
-      } );
+    .component( 'promiseChain', {
+      template  : '<p>This is the promise-chain component</p>' +
+      '<p>Results: </p>' +
+      '<ul>' +
+      '<li>Transaction id: {{ $ctrl.tx.txId }}</li>' +
+      '<li>Transaction payee: {{ $ctrl.tx.payee.payeeName }}</li>' +
+      '<li>Transaction amount: {{ $ctrl.tx.amount | currency }}</li>' +
+      '</ul>',
+      controller: PromiseChainController
+    } );
 
   function PromiseChainController( $log, $http, $q ) {
     var ctrl = this;
@@ -23,8 +23,8 @@
 
       // Comment this out to see the effects in later promises
       return results.data;
-    }, function(err) {
-      $log.error('First-order promise: Something went wrong! [%o]', err);
+    }, function( err ) {
+      $log.error( 'First-order promise: Something went wrong! [%o]', err );
 
       // Comment this out to see that if the error is not passed along,
       // the success "chain" continues. That is, if this error callback
@@ -37,8 +37,8 @@
       $log.log( 'Second-order promise [%o]', tx );
       ctrl.tx = tx;
       return tx.payee.payeeName;
-    }, function(err) {
-      $log.error('Second-order promise: Something went wrong! [%o]', err);
+    }, function( err ) {
+      $log.error( 'Second-order promise: Something went wrong! [%o]', err );
 
       // Returning a rejected promise
       return $q.reject( err );
@@ -47,7 +47,7 @@
     var p4 = p3.then( function( payeeName ) {
       $log.log( 'Third-order promise' );
       $log.log( 'The payeeName is %s', payeeName );
-    }, function(err) {
+    }, function( err ) {
       $log.error( 'Third-order promise: Something went wrong! [%o]', err );
     } );
   }

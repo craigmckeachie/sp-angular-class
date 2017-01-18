@@ -1,15 +1,15 @@
 (function( angular ) {
   angular.module( 'payee.detail', [] )
-      .component( 'payeeDetail', {
-        templateUrl: 'app/payee/payee-detail-tpl.html',
-        controller: PayeeDetailController,
-        require: {
-          payeeComponent: '^^payeeComponent'
-        },
-        bindings: {
-          payee: '<?'
-        }
-      } );
+    .component( 'payeeDetail', {
+      templateUrl: 'app/payee/payee-detail-tpl.html',
+      controller : PayeeDetailController,
+      require    : {
+        payeeComponent: '^^payeeComponent'
+      },
+      bindings   : {
+        payee: '<?'
+      }
+    } );
 
   function PayeeDetailController( $stateParams ) {
     var ctrl = this;
@@ -30,9 +30,9 @@
      */
     function updatePayee( payeeId ) {
       ctrl.payeeComponent.getById( payeeId )
-          .then( function( results ) {
-            ctrl.payee = results.data;
-          } );
+        .then( function( results ) {
+          ctrl.payee = results.data;
+        } );
     }
 
   }

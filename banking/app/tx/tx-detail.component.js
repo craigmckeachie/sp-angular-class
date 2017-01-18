@@ -8,7 +8,7 @@
       }
     } );
 
-  function TxDetailController( ) {
+  function TxDetailController() {
     var ctrl = this;
 
   }

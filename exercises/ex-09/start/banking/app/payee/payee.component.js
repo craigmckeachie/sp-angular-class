@@ -1,9 +1,9 @@
 (function( angular ) {
   angular.module( 'payee.component', [ 'payee.list', 'payee.detail', 'payee.search', 'payee.utils', 'payee.dao', 'ui.router' ] )
-      .component( 'payeeComponent', {
-        templateUrl: 'app/payee/payee-component-tpl.html',
-        controller: PayeeComponentController
-      } );
+    .component( 'payeeComponent', {
+      templateUrl: 'app/payee/payee-component-tpl.html',
+      controller : PayeeComponentController
+    } );
 
   function PayeeComponentController( $log, $state, payeeDAO ) {
     var ctrl = this;

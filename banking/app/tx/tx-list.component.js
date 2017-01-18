@@ -22,7 +22,7 @@
 
     function onInit() {
       $log.log( 'TxListController.$onInit()' );
-      $log.log('TxListController.stateParams: ', $stateParams)
+      $log.log( 'TxListController.stateParams: ', $stateParams )
     }
 
     function onChanges( changesObj ) {

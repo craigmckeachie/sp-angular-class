@@ -7,23 +7,23 @@
  */
 (function( angular ) {
   angular.module( 'payee.dao', [] )
-      .factory( 'payeeDAO', function( $http, $q ) {
-        var baseHref = 'http://localhost:7100/banking/payee/';
+    .factory( 'payeeDAO', function( $http, $q ) {
+      var baseHref = 'http://localhost:7100/banking/payee/';
 
-        var dao = {
-          get: get,
-          query: query
-        };
+      var dao = {
+        get  : get,
+        query: query
+      };
 
-        return dao;
+      return dao;
 
-        function get( id ) {
-          return $http.get( baseHref + id );
-        }
+      function get( id ) {
+        return $http.get( baseHref + id );
+      }
 
-        function query( criteria ) {
-          return $http.get( baseHref, { params: criteria } );
-        }
+      function query( criteria ) {
+        return $http.get( baseHref, { params: criteria } );
+      }
 
-      } )
+    } )
 })( angular );

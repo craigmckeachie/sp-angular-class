@@ -24,10 +24,10 @@
    */
 
   angular.module( 'payee' )
-      .component( 'payeeMain', {
-        template: '<h3>Welcome to the {{ $ctrl.componentName }} component.</h3>',
-        controller: PayeeMainController
-      } );
+    .component( 'payeeMain', {
+      template  : '<h3>Welcome to the {{ $ctrl.componentName }} component.</h3>',
+      controller: PayeeMainController
+    } );
 
   function PayeeMainController() {
     var ctrl = this;

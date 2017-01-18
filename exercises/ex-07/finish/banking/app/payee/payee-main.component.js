@@ -45,7 +45,7 @@
 
     ctrl.selectPayee = selectPayee;
 
-    function selectPayee(payee) {
+    function selectPayee( payee ) {
       ctrl.payee = payee;
     }
   }

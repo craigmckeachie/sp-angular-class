@@ -20,7 +20,7 @@
       }
     } );
 
-  function PayeeListController( ) {
+  function PayeeListController() {
     var ctrl = this;
 
     ctrl.selectPayee = selectPayee;

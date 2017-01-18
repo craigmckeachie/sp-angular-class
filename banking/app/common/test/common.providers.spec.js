@@ -20,7 +20,7 @@ describe( 'Testing common.providers', function() {
     };
 
     serializedParams = serializer( params );
-    console.log('serializedParams: ', serializedParams)
+    console.log( 'serializedParams: ', serializedParams )
   } );
 
   it( 'should generate an encoded string', function() {
@@ -32,9 +32,9 @@ describe( 'Testing common.providers', function() {
     expect( serializedParams ).toContain( 2015 );
   } );
 
-  it('should correctly serialize dates', function() {
+  it( 'should correctly serialize dates', function() {
     expect( params.startDate ).toBe( startDate );
     expect( serializedParams ).toMatch( startDate.toISOString() );
-  })
+  } )
 
 } );

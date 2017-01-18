@@ -1,16 +1,16 @@
 (function( angular ) {
   angular.module( 'payee.list', [] )
-      .component( 'payeeList', {
-        templateUrl: 'app/payee/payee-list-tpl.html',
-        controller: PayeeListController,
-        require: {
-          payeeComponent: '^^payeeComponent'
-        },
-        bindings: {
-          payees: '<',
-          onSelect: '&'
-        }
-      } );
+    .component( 'payeeList', {
+      templateUrl: 'app/payee/payee-list-tpl.html',
+      controller : PayeeListController,
+      require    : {
+        payeeComponent: '^^payeeComponent'
+      },
+      bindings   : {
+        payees  : '<',
+        onSelect: '&'
+      }
+    } );
 
   function PayeeListController( $log, $stateParams, payeeUtils ) {
     var ctrl = this;
@@ -41,9 +41,9 @@
     function updatePayee( criteria ) {
       ctrl.payees = [];
       ctrl.payeeComponent.search( criteria )
-          .then(function( results ) {
-            ctrl.payees = results.data;
-          });
+        .then( function( results ) {
+          ctrl.payees = results.data;
+        } );
     }
 
   }

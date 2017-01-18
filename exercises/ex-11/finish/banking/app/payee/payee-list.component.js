@@ -23,17 +23,17 @@
 
 (function( angular ) {
   angular.module( 'payee.list', [] )
-      .component( 'payeeList', {
-        templateUrl: 'app/payee/payee-list-tpl.html',
-        controller: PayeeListController,
-        require: {
-          payeeComponent: '^^payeeComponent'
-        },
-        bindings: {
-          payees: '<',
-          onSelect: '&'
-        }
-      } );
+    .component( 'payeeList', {
+      templateUrl: 'app/payee/payee-list-tpl.html',
+      controller : PayeeListController,
+      require    : {
+        payeeComponent: '^^payeeComponent'
+      },
+      bindings   : {
+        payees  : '<',
+        onSelect: '&'
+      }
+    } );
 
   function PayeeListController( $stateParams, payeeUtils ) {
     var ctrl = this;
@@ -44,9 +44,9 @@
     ctrl.toggleSort = toggleSort;
 
     function onInit() {
-      var criteria = payeeUtils.paramsToCriteria($stateParams);
+      var criteria = payeeUtils.paramsToCriteria( $stateParams );
       var criteriaKeys = Object.keys( criteria );
-      if (criteriaKeys.length === 0) {
+      if ( criteriaKeys.length === 0 ) {
         // Do nothing, but don't do any of the below
       } else if ( criteriaKeys.length >= 1 && !ctrl.payees ) {
         updatePayees( criteria );
@@ -63,17 +63,17 @@
     function updatePayees( criteria ) {
       ctrl.payees = [];
       ctrl.payeeComponent.search( criteria )
-          .then( function( results ) {
-            ctrl.payees = results;
-          } )
+        .then( function( results ) {
+          ctrl.payees = results;
+        } )
     }
 
     function callSelect( clickedPayee ) {
       ctrl.onSelect( { payee: clickedPayee } );
     }
 
-    function toggleSort(field) {
-      if (ctrl.sortField === field) {
+    function toggleSort( field ) {
+      if ( ctrl.sortField === field ) {
         ctrl.sortField = '-' + field;
       } else {
         ctrl.sortField = field;
