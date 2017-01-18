@@ -17,18 +17,6 @@
    *
    */
 
-  var payee = {
-    "id"        : 47,
-    "payeeName" : "Goodman, Lieber, Kurtzberg, Holliway",
-    "categoryId": 13,
-    "address"   : "16 W 12 St.",
-    "city"      : "New York",
-    "state"     : "NY",
-    "zip"       : "10015",
-    "image"     : "/images/animals/9.jpg",
-    "motto"     : null
-  };
-
   angular.module( 'payee' )
     .component( 'payeeMain', {
       templateUrl: 'app/payee/payee-main.component.html',
@@ -38,7 +26,6 @@
   function PayeeMainController() {
     var ctrl = this;
     ctrl.componentName = 'payeeMain';
-    ctrl.payee = payee;
     ctrl.payees = getPayees();
   }
 
