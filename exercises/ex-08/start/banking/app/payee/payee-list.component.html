@@ -1,0 +1,23 @@
+<!--
+Add an anchor to each payeeName td element with a ui-sref which points to payees.detail
+
+Then return to payee.config.
+-->
+<table class="table">
+  <thead>
+  <tr>
+    <th>Payee Name</th>
+    <th>City</th>
+    <th>State</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="payee in $ctrl.payees | orderBy: 'payeeName'"
+      ng-click="$ctrl.selectPayee(payee)">
+    <td>{{ payee.payeeName }}</td>
+    <td>{{ payee.city }}</td>
+    <td>{{ payee.state }}</td>
+  </tr>
+  </tbody>
+</table>
+

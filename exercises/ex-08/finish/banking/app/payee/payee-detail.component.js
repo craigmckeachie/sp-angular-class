@@ -1,38 +1,9 @@
 (function( angular ) {
-  angular.module( 'payee.detail', [] )
+  angular.module( 'payee' )
     .component( 'payeeDetail', {
-      templateUrl: 'app/payee/payee-detail-tpl.html',
-      controller : PayeeDetailController,
-      require    : {
-        payeeComponent: '^^payeeComponent'
-      },
+      templateUrl: 'app/payee/payee-detail.component.html',
       bindings   : {
-        payee: '<?'
+        payee: '<'
       }
     } );
-
-  function PayeeDetailController( $stateParams ) {
-    var ctrl = this;
-
-    ctrl.$onInit = onInit;
-
-    function onInit() {
-      if ( $stateParams.payeeId && !ctrl.payee ) {
-        updatePayee( $stateParams.payeeId );
-      } else if ( Number( $stateParams.payeeId ) !== ctrl.payee.payeeId ) {
-        updatePayee( $stateParams.payeeId );
-      }
-    }
-
-    /*
-     * The call to getById() now returns a promise. Adjust this code accordingly
-     */
-    function updatePayee( payeeId ) {
-      ctrl.payeeComponent.getById( payeeId )
-        .then( function( results ) {
-          ctrl.payee = results.data;
-        } );
-    }
-
-  }
 })( angular );
