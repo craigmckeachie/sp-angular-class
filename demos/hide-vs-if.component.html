@@ -13,7 +13,7 @@
     <button ng-click="$ctrl.inDOM = !$ctrl.inDOM" class="btn btn-primary">If</button>
   </div>
   <div class="col-md-6">
-    <div ng-show="$ctrl.inDOM" style="height: 200px; width: 200px; background-color: blue">
+    <div ng-if="$ctrl.inDOM" style="height: 200px; width: 200px; background-color: blue">
       <p style="position:relative; top: 82px; left: 50px; color: white; font-size: 16pt">Watch me</p>
     </div>
   </div>

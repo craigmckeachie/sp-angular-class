@@ -1,6 +1,6 @@
 (function( angular ) {
   angular.module( 'examples.events', [] )
-    .component( 'knownDirectives', {
+    .component( 'eventHandling', {
       templateUrl: 'event-handling.component.html',
       controller : EventHandlingController
     } );
