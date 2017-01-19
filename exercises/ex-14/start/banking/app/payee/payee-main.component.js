@@ -5,6 +5,9 @@
    *
    * Do the same for onInit's calls to query() and get()
    *
+   * In onInit, the initial call to payeeDAO.query() should ONLY happen when
+   * the $state.$current.name is payees.list and ctrl.payees is undefined.
+   *
    */
   angular.module( 'payee' )
     .component( 'payeeMain', {
