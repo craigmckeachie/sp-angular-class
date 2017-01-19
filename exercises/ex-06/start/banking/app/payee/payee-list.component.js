@@ -1,6 +1,6 @@
 (function( angular ) {
   /*
-   * The payeeList component will have a list of transactions sent to it
+   * The payeeList component will have a list of payees sent to it
    * by property binding, instead of requiring payeeMain
    *
    * Remove the require configuration
