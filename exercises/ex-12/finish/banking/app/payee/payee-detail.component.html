@@ -1,0 +1,19 @@
+<!--
+Add a list item below which displays the categoryName associated with
+this payee.
+
+Then return to category-lookup.provider.js
+-->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>{{ $ctrl.payee.payeeName }}</h3>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">Payee id: {{ $ctrl.payee.id }}</li>
+    <li class="list-group-item">{{ $ctrl.payee.address }}</li>
+    <li class="list-group-item">
+      {{ $ctrl.payee.city }}, {{ $ctrl.payee.state }} {{ $ctrl.payee.zip }}
+    </li>
+    <li class="list-group-item">Category: {{ $ctrl.payee.category.categoryName }}</li>
+  </ul>
+</div>
