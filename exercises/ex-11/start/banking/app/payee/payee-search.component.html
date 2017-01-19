@@ -1,0 +1,36 @@
+<!--
+The form has been mostly constructed for you.
+You will need to add ng-model directives to each input field
+The ng-models should all share the same object, like the last exercise
+But have property names that conform to Payee property names
+
+In the button at the bottom, add an ng-click which invokes $ctrl.search, passing
+it the form model object.
+
+Then return to payee-search.component.js
+-->
+<form>
+  <div class="form-group">
+    <label for="payee-payeeName">Payee Name</label>
+    <input id="payee-payeeName" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="payee-address">Address </label>
+    <input id="payee-address" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="payee-city">City</label>
+    <input id="payee-city" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="payee-state">State</label>
+    <input id="payee-state" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="payee-motto">Motto (contains)</label>
+    <input id="payee-motto" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <button>Search</button>
+  </div>
+</form>
