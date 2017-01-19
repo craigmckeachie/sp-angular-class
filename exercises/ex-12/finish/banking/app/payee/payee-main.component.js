@@ -1,14 +1,4 @@
 (function( angular ) {
-  /*
-   * Add a dependency on $filter
-   * Add a function, searchHandler, which takes an argument of criteria
-   * It should use the $filter accessor to use the filter filter to find matching
-   * payees loaded from getPayees()
-   * Then it should use $state to go to the payees.list view
-   *
-   * Add this searchHandler function to the controller
-   * Return to payee.config.js for testing instructions
-   */
   angular.module( 'payee' )
     .component( 'payeeMain', {
       templateUrl: 'app/payee/payee-main.component.html',
