@@ -1,0 +1,35 @@
+<!--
+Add a row to the table head section
+It should have td's with text inputs
+Each text input should have an ng-model
+But all of the ng-model variables should belong to a common object on $ctrl
+
+Then, use the filter filter on the ng-repeat
+Providing the common filter object on $ctrl that you defined with the ng-models
+as the argument to filter
+
+Then go to http://localhost:8000/banking/#!/payees/list and test your code.
+-->
+<table class="table">
+  <thead>
+  <tr>
+    <th>Payee Name</th>
+    <th>City</th>
+    <th>State</th>
+  </tr>
+  <tr>
+    <td><input ng-model="$ctrl.listFilter.payeeName" class="form-control" type="text"></td>
+    <td><input ng-model="$ctrl.listFilter.city" class="form-control" type="text"></td>
+    <td><input ng-model="$ctrl.listFilter.state" class="form-control" type="text"></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="payee in $ctrl.payees | filter: $ctrl.listFilter | orderBy: 'payeeName'"
+      ng-click="$ctrl.selectPayee(payee)">
+    <td><a ui-sref="payees.detail({id:payee.id})">{{ payee.payeeName }}</a></td>
+    <td>{{ payee.city }}</td>
+    <td>{{ payee.state }}</td>
+  </tr>
+  </tbody>
+</table>
+
