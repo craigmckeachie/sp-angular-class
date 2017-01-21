@@ -4,6 +4,10 @@
    * * Build a DAO which wraps around $http for data access
    * * Change code in payee-main.component.js to work with promises
    *
+   * http://localhost:8001/payee -> ALL PAYEES
+   * http://localhost:8001/payee/47 -> One Payee
+   * http://localhost:8001/payee?payeeName=Foo
+   *
    * Add a dependency on $http
    * Update get and query to use $http and return promises
    * When you are testing code, keep in mind that payeeName will have to be
