@@ -1,3 +1,3 @@
 (function( angular ) {
-  angular.module( 'banking', [ 'ui.router', 'tx', 'payee', 'category' ] );
+  angular.module( 'banking', [ 'ui.router', 'common', 'account', 'tx', 'payee', 'category' ] );
 })( angular );

@@ -1,3 +1,3 @@
 (function( angular ) {
-  angular.module( 'payee', [ 'payee.directives', 'common' ] );
+  angular.module( 'payee', [ 'payee.directives' ] );
 })( angular )

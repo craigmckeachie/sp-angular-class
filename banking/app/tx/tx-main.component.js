@@ -45,7 +45,6 @@
     }
 
     function swapToDetail( tx ) {
-      tx.accountName = account.getAccountName( tx.accountId );
       ctrl.tx = tx;
       $state.go( 'tx.detail', { id: ctrl.tx.id } );
     }
