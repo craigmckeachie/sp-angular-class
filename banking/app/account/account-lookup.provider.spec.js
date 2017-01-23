@@ -9,6 +9,10 @@ describe( 'Testing account-lookup.provider', function() {
     } )
   } );
 
+  it( 'should create the account value', function() {
+    expect( account ).toBeDefined();
+  } );
+
   it( 'should return "Checking" for accountId 1', function() {
     expect( account.getAccountName( 1 ) ).toBe( 'Checking' );
   } );
@@ -22,4 +26,4 @@ describe( 'Testing account-lookup.provider', function() {
       expect( account.getAccountName( 0 ) ).toBeUndefined();
     } );
   } )
-} )
+} );
