@@ -3,7 +3,7 @@
   angular.module( 'tx' )
     .factory( 'txDAO', txDAO );
 
-  function txDAO( $http, $log, account, $q, bankingHttpSerializer, _ ) {
+  function txDAO( $http, $log, $q, bankingHttpSerializer, _ ) {
     var baseHref = 'http://localhost:8001/tx/';
     var standardOptions = {
       paramSerializer: bankingHttpSerializer
@@ -21,7 +21,6 @@
     function get( id ) {
       return $http.get( baseHref + id, standardOptions )
         .then( function( response ) {
-          response.data.accountName = account.getAccountName( response.data.accountId );
           return response.data;
         }, function( err ) {
           $log.error( 'Error: txDAO.get(' + id + '): ', err );

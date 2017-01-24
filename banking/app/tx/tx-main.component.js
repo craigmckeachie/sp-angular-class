@@ -5,7 +5,7 @@
       controller : TxMainController
     } );
 
-  function TxMainController( $log, $state, $stateParams, txDAO, _, account ) {
+  function TxMainController( $log, $state, $stateParams, txDAO, account ) {
     var ctrl = this;
 
     ctrl.$onInit = onInit;
@@ -14,20 +14,19 @@
     ctrl.save = save;
 
     function onInit() {
-      $log.log( 'TxMainController.$onInit()' );
 
       // What if we go to txDetail without going to txList?
       if ( ( $state.$current.name === 'tx.detail' || $state.$current.name === 'tx.edit' ) && !angular.isDefined( ctrl.tx ) ) {
         txDAO.get( $stateParams.id )
           .then( function( tx ) {
             ctrl.tx = tx;
-            ctrl.tx.accountId = "" + ctrl.tx.accountId;
+            ctrl.tx.accountName = account.getAccountName( ctrl.tx.accountId );
           } )
       }
 
       // What if we go to txList without going to txSearch?
       if ( $state.$current.name === 'tx.list' && !angular.isDefined( ctrl.transactions ) ) {
-        var criteria = _.clone( $stateParams );
+        var criteria = angular.copy( $stateParams );
         delete criteria[ '#' ];
         txDAO.query( criteria )
           .then( function( transactions ) {
@@ -46,6 +45,7 @@
 
     function swapToDetail( tx ) {
       ctrl.tx = tx;
+      ctrl.tx.accountName = account.getAccountName( ctrl.tx.accountId );
       $state.go( 'tx.detail', { id: ctrl.tx.id } );
     }
 
