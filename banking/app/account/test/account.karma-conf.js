@@ -5,7 +5,8 @@ module.exports = function( config ) {
     files     : [
       '../../../node_modules/angular/angular.js',
       '../../../node_modules/angular-mocks/angular-mocks.js',
-      '*.js'
+      'account.module.js',
+      'account-lookup.*.js'
     ],
 
     reporters: [ 'mocha' ],
