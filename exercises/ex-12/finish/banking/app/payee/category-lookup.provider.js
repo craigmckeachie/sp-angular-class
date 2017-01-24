@@ -37,13 +37,10 @@
   }
 
   function byName( categoryName ) {
-    var foundCategories = getCategories().map( function( category ) {
-      if ( /categoryName/i.test( category.categoryName ) ) {
-        return category;
-      }
+    var re = new RegExp( categoryName, 'i' );
+    return getCategories().filter( function( category ) {
+      return re.test( category.categoryName )
     } );
-
-    return foundCategories;
   }
 
   function getCategories() {
