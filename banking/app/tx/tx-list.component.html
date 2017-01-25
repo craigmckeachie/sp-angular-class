@@ -34,8 +34,12 @@
       <div class="dt-cell col-md-4 dt-payeeName dt-2-wide">{{ tx.payee.payeeName }}</div>
       <div class="dt-cell col-md-2 dt-amount">{{ tx.amount | currency }}</div>
       <div class="dt-cell col-md-2 dt-txType">{{ tx.txType }}</div>
-      <div class="dt-cell col-md-2 dt-txDate">{{ tx.txDate | date:'yyyy-MM-dd' }}</div>
-      <div class="dt-cell col-md-2 dt-category">{{ tx.category.categoryName }}</div>
+      <div class="dt-cell col-md-2 dt-txDate" ng-click="$ctrl.findAll('txDate', tx, $event)">{{ tx.txDate |
+        date:'yyyy-MM-dd' }}
+      </div>
+      <div class="dt-cell col-md-2 dt-category" ng-click="$ctrl.findAll('category.categoryName', tx, $event)">{{
+        tx.category.categoryName }}
+      </div>
     </div>
   </div>
 </div>

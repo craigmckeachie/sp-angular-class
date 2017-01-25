@@ -5,7 +5,8 @@
       controller : TxListController,
       bindings   : {
         transactions: '<',
-        onSelect    : '&'
+        onSelect    : '&',
+        onFindOthers: '&'
       }
     } );
 
@@ -19,10 +20,14 @@
     ctrl.$onDestroy = onDestroy;
     ctrl.callSelect = callSelect;
     ctrl.toggleSort = toggleSort;
+    ctrl.findAll = findAll;
 
     function onInit() {
       $log.log( 'TxListController.$onInit()' );
-      $log.log( 'TxListController.stateParams: ', $stateParams )
+      $log.log( 'TxListController.stateParams: ', $stateParams );
+
+      // See findAll for why we're caching this here.
+      ctrl.originalSet = ctrl.transactions;
     }
 
     function onChanges( changesObj ) {
@@ -39,6 +44,42 @@
 
     function callSelect( clickedTx ) {
       ctrl.onSelect( { tx: clickedTx } )
+    }
+
+    function findAll( field, tx, event ) {
+
+      // If we're on the reduced set, restore the original set.
+      if ( ctrl.transactions !== ctrl.originalSet ) {
+        ctrl.transactions = ctrl.originalSet;
+        event.stopPropagation();
+        return;
+      }
+
+      var search = { field: field };
+      if ( field === 'txDate' ) {
+        search.field = field;
+        search.value = tx.txDate.match( /(.+)T/ )[ 1 ]
+      } else if ( field === 'category.categoryName' ) {
+        search.value = tx.category.categoryName;
+      }
+
+      ctrl.transactions = ctrl.transactions.filter( function( tx ) {
+        var searchSpace;
+        if ( search.field.indexOf( '.' ) > -1 ) {
+          var fields = search.field.split( '.' );
+
+          // Assumes only one sub-field
+          searchSpace = tx[ fields[ 0 ] ][ fields[ 1 ] ];
+        } else {
+          searchSpace = tx[ search.field ];
+        }
+
+        if ( searchSpace.indexOf( search.value ) === 0 ) {
+          return true;
+        }
+      } );
+
+      event.stopPropagation();
     }
 
     function toggleSort( field ) {
