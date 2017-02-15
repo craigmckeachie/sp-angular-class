@@ -12,3 +12,4 @@ banking-original/
 Hello*
 npm-debug.log
 tmp/
+.DS_Store
