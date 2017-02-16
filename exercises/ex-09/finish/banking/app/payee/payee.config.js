@@ -12,6 +12,9 @@
    * When you are finished, load http://localhost:8000/banking/#!/payees
    * in your browser to test the results
    *
+   * Also test http://localhost:8000/banking/#!/payees/47 to make sure that
+   * the $onInit in payeeMain is working.
+   *
    */
 
   angular.module( 'payee' )
