@@ -2,7 +2,7 @@
   /*
    * Here in payee-main.component.js, you will add the following code
    *
-   * Register a new angular component, 'payee-main.component' with the
+   * Register a new angular component, 'payeeMain' with the
    * module 'payee'. Do not create a new module, use the existing one.
    * (It's defined in payee.module.js)
    *
