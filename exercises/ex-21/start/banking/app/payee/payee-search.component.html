@@ -1,0 +1,32 @@
+<!--
+Replace the input[text] field for State below with a select list which is
+populated by the get-list directive.
+
+Then load http://localhost:8000/banking/#!/payees/search and see if the State
+drop-down is properly populated.
+-->
+<form>
+  <div class="form-group">
+    <label for="payee-payeeName">Payee Name</label>
+    <input ng-model="$ctrl.searchForm.payeeName" id="payee-payeeName" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="payee-address">Address </label>
+    <input ng-model="$ctrl.searchForm.address" id="payee-address" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="payee-city">City</label>
+    <input ng-model="$ctrl.searchForm.city" id="payee-city" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="payee-state">State</label>
+    <input ng-model="$ctrl.searchForm.state" id="payee-state" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="payee-motto">Motto (contains)</label>
+    <input ng-model="$ctrl.searchForm.motto" id="payee-motto" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <button ng-click="$ctrl.search($ctrl.searchForm)">Search</button>
+  </div>
+</form>
