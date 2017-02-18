@@ -6,5 +6,4 @@ export COURSE_HOME=${DIR%/*}
 
 PATH=$DIR:$COURSE_HOME/node_modules:$PATH
 
-chmod u+x $COURSE_HOME/bin/* $COURSE_HOME/server/*.js
 chmod u+x $COURSE_HOME/node_modules/.bin/*
