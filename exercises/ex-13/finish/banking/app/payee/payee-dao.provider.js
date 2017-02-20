@@ -17,7 +17,7 @@
    *
    * Then go to payee-main.component.js
    *
-   * When you are ready to test, go to http://localhost:8000/banking/#!/payee/list
+   * When you are ready to test, go to http://localhost:8000/banking/#!/payees/list
    * to see the list of Payees.
    *
    */
