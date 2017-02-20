@@ -15,7 +15,7 @@
    * Then go to payee-detail.component.js
    *
    * When you are ready to test, you can navigate directly to
-   * http://localhost:8000/banking/#!/payee/detail/47 to see if a category
+   * http://localhost:8000/banking/#!/payees/detail/47 to see if a category
    * name appears for that payee
    *
    */
