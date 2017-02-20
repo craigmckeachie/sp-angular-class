@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-6">
+    <h3>Using ng-style</h3>
+    <ul>
+      <li>Single declaration expression: <span ng-style="{backgroundColor : ($ctrl.x > 10 ? 'red' : 'blue')}">Test text</span></li>
+      <li>Multiple declaration expression <span ng-style="{'background-color': ($ctrl.x > 10 ? 'blue' : 'red'), color: 'white'}">Test text</span></li>
+      <li>Function call expression <span ng-style="$ctrl.getStyles()">Test text</span></li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h3>Using ng-class</h3>
+    <ul>
+      <li>In-line expression: <span ng-class="$ctrl.x > 10 ? 'highlightGreen' : 'highlightYellow'">Test text</span></li>
+      <li>Function returning class names: <span ng-class="$ctrl.getClasses()">Test text</span></li>
+      <li>Function returns object: <span ng-class="$ctrl.getClassConfiguration()">Test text</span></li>
+    </ul>
+  </div>
+</div>
