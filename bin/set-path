@@ -4,7 +4,7 @@ ORIGINAL_PATH=$PATH
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 export COURSE_HOME=${DIR%/*}
 
-PATH=$DIR:$COURSE_HOME/node_modules:$PATH
+PATH=$DIR:$COURSE_HOME/node_modules:$COURSE_HOME/node_modules/.bin:$PATH
 
-chmod u+x $COURSE_HOME/bin/* $COURSE_HOME/server/*.js
+chmod u+x $COURSE_HOME/bin/*
 chmod u+x $COURSE_HOME/node_modules/.bin/*

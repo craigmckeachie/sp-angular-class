@@ -15,8 +15,8 @@
     var ctrl = this;
 
     // Swap these to change from running a successful request to one that will fail
-    var p1 = $http.get( 'http://localhost:7100/banking/tq/500' );
-    // var p1 = $http.get( 'http://localhost:7100/banking/tx/500' );
+    var p1 = $http.get( 'http://localhost:8001/tq/500' );
+    // var p1 = $http.get( 'http://localhost:8001/tx/500' );
 
     var p2 = p1.then( function( results ) {
       $log.log( 'First-order promise [%o]', results );

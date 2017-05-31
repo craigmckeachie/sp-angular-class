@@ -33,7 +33,7 @@
       ctrl.angularVersion = angular.version.full;
       angular.element( document.getElementById( 'angular-installed' ) ).empty();
 
-      $http.get( 'http://localhost:7100/banking/tx/1' )
+      $http.get( 'http://localhost:8001/tx/1' )
         .then( function ( results ) {
           console.log( results );
           angular.element( document.getElementById( 'db-installed' ) ).empty();

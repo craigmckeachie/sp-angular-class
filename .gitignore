@@ -12,3 +12,5 @@ banking-original/
 Hello*
 npm-debug.log
 tmp/
+yarn.lock
+http.log

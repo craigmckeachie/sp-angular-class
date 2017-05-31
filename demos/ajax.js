@@ -24,7 +24,7 @@
   function SuccessAjaxController( $log, $http ) {
     var ctrl = this;
 
-    $http.get( 'http://localhost:7100/banking/tx/500' )
+    $http.get( 'http://localhost:8001/tx/500' )
       .then( successCallback );
 
     function successCallback( results ) {
@@ -38,7 +38,7 @@
     var ctrl = this;
 
     // This URL doesn't exist.
-    $http.get( 'http://localhost:7100/banking/tq/500' )
+    $http.get( 'http://localhost:8001/tq/500' )
       .then( null, failureCallback );
 
     function failureCallback( err ) {
