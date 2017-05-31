@@ -7,7 +7,7 @@
 
   function StylesController( $log ) {
     var ctrl = this;
-    $log.log('StylesController created.');
+    $log.log( 'StylesController created.' );
 
     ctrl.x = 5;
 
@@ -18,23 +18,23 @@
     function getStyles() {
       return {
         backgroundColor: (ctrl.x > 10 ? 'red' : 'blue'),
-        color: 'white',
-        border: '2px solid ' + (ctrl.x > 10 ? 'blue' : 'red')
+        color          : 'white',
+        border         : '2px solid ' + (ctrl.x > 10 ? 'blue' : 'red')
       }
     }
 
     function getClasses() {
-      var styles = ['boldify'];
-      styles.push(ctrl.x < 10 ? 'highlightGreen' : 'highlightYellow');
+      var styles = [ 'boldify' ];
+      styles.push( ctrl.x < 10 ? 'highlightGreen' : 'highlightYellow' );
 
       return styles;
     }
 
     function getClassConfiguration() {
       return {
-        highlightGreen: ctrl.x > 10,
+        highlightGreen : ctrl.x > 10,
         highlightYellow: ctrl.x < 10,
-        boldify: true
+        boldify        : true
       }
     }
   }
