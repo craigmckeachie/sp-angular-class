@@ -1,0 +1,5 @@
+<select ng-model="ngModel"
+        ng-options="payee.payeeName for payee in payees track by payee.id"
+        class="form-control">
+  <option value="">Choose a payee</option>
+</select>

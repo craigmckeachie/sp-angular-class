@@ -1,0 +1,29 @@
+<form>
+  <div class="form-group">
+    <label for="payee-name">Payee Name</label>
+    <input ng-model="$ctrl.searchForm.payee.payeeName_like" id="payee-name" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <category-select ng-model="$ctrl.searchForm.category" id="category"></category-select>
+  </div>
+  <div class="form-group">
+    <label for="amount-low">Amount Low </label>
+    <input ng-model="$ctrl.searchForm.amount_gte" id="amount-low" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="amount-high">Amount High</label>
+    <input ng-model="$ctrl.searchForm.amount_lte" id="amount-high" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="start-date">Start Date (yyyy-mm-dd)</label>
+    <input ng-model="$ctrl.searchForm.txDate_gte" id="start-date" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="end-date">End Date (yyyy-mm-dd)</label>
+    <input ng-model="$ctrl.searchForm.txDate_lte" id="end-date" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <button ng-click="$ctrl.search($ctrl.searchForm)">Search</button>
+  </div>
+</form>
