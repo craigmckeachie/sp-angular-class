@@ -70,3 +70,49 @@ tx-detail, tx-list {
 
 .dt-body-cell {
 }
+
+.panel-royal {
+    border-color: #9b59b6;
+}
+
+.panel-royal > .panel-heading {
+    color: #fff;
+    background-color: #9b59b6;
+    border-color: #9b59b6;
+}
+
+.panel-royal > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #9b59b6;
+}
+
+.panel-royal > .panel-heading .badge {
+    color: #9b59b6;
+    background-color: #fff;
+}
+
+.panel-royal > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #9b59b6;
+}
+
+.panel-golden {
+    border-color: #FFFF9D;
+}
+
+.panel-golden > .panel-heading {
+    color: #000;
+    background-color: #FFFF9D;
+    border-color: #FFFF9D;
+}
+
+.panel-golden > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #FFFF9D;
+}
+
+.panel-golden > .panel-heading .badge {
+    color: #FFFF9D;
+    background-color: #000;
+}
+
+.panel-golden > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #FFFF9D;
+}

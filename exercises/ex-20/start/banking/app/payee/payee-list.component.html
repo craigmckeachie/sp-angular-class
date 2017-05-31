@@ -1,0 +1,30 @@
+<!--
+In the tr with the ng-repeat directive, below, replace the call to filter with
+a call to startsWith. You can continue to pass in $ctrl.listFilter.
+
+Test your code by visiting http://localhost:8000/banking/#!/payees/list
+-->
+<table class="table">
+  <thead>
+  <tr>
+    <th>Payee Name</th>
+    <th>City</th>
+    <th>State</th>
+  </tr>
+  <tr>
+    <td><input ng-model="$ctrl.listFilter.payeeName" class="form-control" type="text"></td>
+    <td><input ng-model="$ctrl.listFilter.city" class="form-control" type="text"></td>
+    <td><input ng-model="$ctrl.listFilter.state" class="form-control" type="text"></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="payee in $ctrl.payees | filter: $ctrl.listFilter | orderBy: 'payeeName'"
+      ng-click="$ctrl.selectPayee(payee)"
+      ng-style="$ctrl.styleRow(payee.categoryId)">
+    <td><a ui-sref="payees.detail({id:payee.id})">{{ payee.payeeName }}</a></td>
+    <td ng-click="$ctrl.findAll('city', payee, $event)">{{ payee.city }}</td>
+    <td ng-click="$ctrl.findAll('state', payee, $event)">{{ payee.state }}</td>
+  </tr>
+  </tbody>
+</table>
+

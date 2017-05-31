@@ -4,7 +4,7 @@
       template  : '<p>This is the success-ajax component</p>' +
       '<p>Results: </p>' +
       '<ul>' +
-      '<li>Transaction id: {{ $ctrl.tx.txId }}</li>' +
+      '<li>Transaction id: {{ $ctrl.tx.id }}</li>' +
       '<li>Transaction payee: {{ $ctrl.tx.payee.payeeName }}</li>' +
       '<li>Transaction amount: {{ $ctrl.tx.amount | currency }}</li>' +
       '</ul>',
@@ -12,12 +12,14 @@
     } )
     .component( 'failedAjax', {
       template  : '<p>This is the failed-ajax component</p>' +
-      '<p>Results: </p>' +
+      '<div ng-if="$ctrl.tx"><p>Results: </p>' +
       '<ul>' +
-      '<li>Transaction id: {{ $ctrl.tx.txId }}</li>' +
+      '<li>Transaction id: {{ $ctrl.tx.id }}</li>' +
       '<li>Transaction payee: {{ $ctrl.tx.payee.payeeName }}</li>' +
       '<li>Transaction amount: {{ $ctrl.tx.amount | currency }}</li>' +
-      '</ul>',
+      '</ul></div>' +
+      '<p ng-if="!$ctrl.tx">Check the console for error details.</p>',
+
       controller: FailedAjaxController
     } );
 

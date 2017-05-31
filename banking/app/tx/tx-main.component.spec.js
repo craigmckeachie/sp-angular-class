@@ -2,8 +2,6 @@ describe( 'Testing txMain component', function() {
   var $componentController, $q, $rootScope, account, mockState, mockStateParams;
 
   beforeEach( function() {
-    var resolver;
-
     module( 'account' );
     module( 'tx' );
 
