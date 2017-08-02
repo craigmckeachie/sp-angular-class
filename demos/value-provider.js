@@ -14,7 +14,7 @@
     } )
     .component( 'valueComponent', {
       controller: function( appName, staticData ) {
-        ctrl = this;
+        var ctrl = this;
         ctrl.person = staticData.person;
         ctrl.yearsOld = staticData.getAge( ctrl.person );
         ctrl.currentAppName = appName;
